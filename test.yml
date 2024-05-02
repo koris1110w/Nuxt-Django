@@ -1,0 +1,21 @@
+version: '3'
+services:
+  front:
+    build:
+      context: ./frontend
+    ports:
+      - 3000:3000
+      - 24678:24678 #ホットリロード用のポート番号
+    volumes:
+      - ./frontend:/code
+      - node_modules:/code/node_modules
+    tty: true
+    restart: always
+    #command: npm run dev ※初回はコメントアウト
+    environment:
+      - HOST=0.0.0.0
+      - PORT=3000
+      - CHOKIDAR_USEPOLLING=true
+
+volumes:
+  node_modules:
