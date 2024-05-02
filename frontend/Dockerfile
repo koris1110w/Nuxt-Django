@@ -1,10 +1,19 @@
-FROM node:18-slim
-ARG AXIOS_BASEURL
-ARG AXIOS_BROWSER_BASEURL
-RUN apt-get update
-ENV APP_ROOT /code
-WORKDIR ${APP_ROOT}
-COPY . ${APP_ROOT}
-RUN npm ci
-RUN npm run build
-ENV HOST 0.0.0.0
+FROM node:20.12.2
+# 作業ディレクトリを設定
+WORKDIR /app
+
+# パッケージファイルをコピー
+COPY ./package*.json ./
+
+# プロジェクトのファイルをコピー
+COPY . .
+
+RUN npm install -g npm@latest
+
+RUN npm install
+
+# Node.jsのヒープサイズを増やす場合は、ビルドスクリプトにオプションを追加
+RUN NODE_OPTIONS=--max-old-space-size=4096 npm run build
+
+# アプリケーションがリッスンするポートを指定
+EXPOSE 3000

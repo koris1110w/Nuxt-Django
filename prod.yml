@@ -8,23 +8,16 @@ services:
     volumes:
       - static:/code/static_root
       - media:/code/media
-    environment:
-      - DJANGO_SETTINGS_MODULE=project.pro_settings
     depends_on:
       - db
 
   frontend:
     build:
       context: ./frontend
-      args:
-        - AXIOS_BASEURL=http://backend:8000/api
-        - AXIOS_BROWSER_BASEURL=/api
+
     expose:
       - "3000"
     command: "npm run start"
-    environment:
-      - AXIOS_BASEURL=http://backend:8000/api
-      - AXIOS_BROWSER_BASEURL=/api
 
   db:
     image: postgres
@@ -40,7 +33,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx_conf:/etc/nginx/conf.d
+      - ./nginx_prod_conf:/etc/nginx/conf.d
       - static:/code/static_root
       - media:/code/media
     depends_on:
