@@ -1,5 +1,17 @@
 version: "3"
 services:
+  backend:
+    build: ./backend
+    command: bash -c "python manage.py migrate && python manage.py collectstatic --no-input --clear && python manage.py runserver  0.0.0.0:8000"
+    expose:
+      - "8000"
+    volumes:
+      - ./backend:/code
+      - static:/code/static_root
+      - media:/code/media
+    depends_on:
+      - db
+  
   db:
     image: postgres
     environment:
@@ -19,7 +31,6 @@ services:
       - media:/code/media
     depends_on:
       - backend
-      - frontend
 
 volumes:
   static:
