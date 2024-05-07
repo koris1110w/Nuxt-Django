@@ -74,11 +74,14 @@
     </div>
     <!-- フィルター -->
     <div class="cols-span-1">
-      <el-button type="primary" @click="setQuery" class="w-full" size="large">フィルター</el-button>
+      <el-button type="primary" @click="filter" class="w-full" size="large">フィルター</el-button>
     </div>
   </div>
   <div class="grid lg:grid-cols-2 lg:gap-y-16 gap-10">
     <c-card v-for="riddle in response.results" :key="riddle.id" :riddle="riddle"></c-card>
+  </div>
+  <div class="mt-4 flex justify-center items-center">
+    <el-pagination background layout="prev, pager, next" v-model:current-page="page" :page-count="Math.ceil(response.count / 4)" @current-change="paging"></el-pagination>
   </div>
 </template>
 <script setup>
@@ -146,20 +149,24 @@
       value: "rating"
     }
   ]
+  const page = ref(1)
   const selectWord = ref("")
-  const selectType = ref([])
-  const selectTime = ref([])
-  const selectLevel = ref([])
+  const selectType = reactive([])
+  const selectTime = reactive([])
+  const selectLevel = reactive([])
   const selectOrder = ref("created_at")
   const query = ref({ 
+    page: page.value,
     word: selectWord.value,
     type: selectType.value,
     time: selectTime.value,
     level: selectLevel.value,
     order: selectOrder.value,
   })
-  const setQuery = () => {
-    query = {
+  const filter = () => {
+    page.value = 1
+    query.value = {
+      page: page.value,
       word: selectWord.value,
       type: selectType.value,
       time: selectTime.value,
@@ -167,5 +174,15 @@
       order: selectOrder.value,
     }
   }
-  const { data: response } = await useFetch("http://localhost:80/api/v1/riddles/", { query })
+  const paging = () => {
+    query.value = {
+      page: page.value,
+      word: selectWord.value,
+      type: selectType.value,
+      time: selectTime.value,
+      level: selectLevel.value,
+      order: selectOrder.value,
+    }
+  }
+  const { data: response, refresh } = await useFetch("http://localhost:80/api/v1/riddles/", { query })
 </script>

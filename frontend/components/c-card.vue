@@ -13,7 +13,7 @@
             disabled
             size="large"
           />
-          <star-rating
+          <!-- <star-rating
             :increment="0.01"
             :rating="riddle.rating"
             :read-only="true"
@@ -23,33 +23,33 @@
             active-color="#ffa503"
             :inline="true"
             class="pb-1.5"
-          ></star-rating>
+          ></star-rating> -->
           <h3 class="ml-3 text-xl text-gray-300 font-semibold">
             {{ riddle.rating }}
           </h3>
         </div>
         <div class="flex items-center mt-3">
-          <!-- <el-icon :size="24" color="white">
-            <Location></Location>
-          </el-icon> -->
+          <el-icon :size="24" color="black">
+            <Location />
+          </el-icon>
           <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.type }}</span>
         </div>
         <div class="flex items-center mt-1">
-          <!-- <el-icon :size="24" color="white">
-            <Timer></Timer>
-          </el-icon> -->
+          <el-icon :size="24" color="black">
+            <Timer />
+          </el-icon>
           <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.time }}</span>
         </div>
         <div class="flex items-center mt-1">
-          <!-- <el-icon :size="24" color="white">
-            <Opportunity></Opportunity>
-          </el-icon> -->
+          <el-icon :size="24" color="black">
+            <Opportunity />
+          </el-icon>
           <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.level }}</span>
         </div>
         <div class="flex items-center mt-1">
-          <!-- <el-icon :size="24" color="white">
-            <Calendar></Calendar>
-          </el-icon> -->
+          <el-icon :size="24" color="black">
+            <Calendar />
+          </el-icon>
           <span
             class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.release_date }} ~ {{ riddle.end_date }}</span>
         </div>
@@ -68,6 +68,12 @@
   </el-card>
 </template>
 <script setup lang="ts">
+  import {
+    Location,
+    Timer,
+    Opportunity,
+    Calendar,
+  } from '@element-plus/icons-vue'
   interface Props {
     riddle: object
   }

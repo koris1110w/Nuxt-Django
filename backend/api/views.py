@@ -24,13 +24,15 @@ class APIRankingView(generics.ListAPIView):
     queryset = models.RiddleModel.objects.order_by('rating').reverse()[0:5]
     serializer_class = serializer.RiddleSerializer
 
-class APIRiddleDetailView(APIView):
+class APIRiddleDetailView(generics.RetrieveAPIView):
     permission_classes = [AllowAny]
+    queryset = models.RiddleModel.objects.all()
+    serializer_class = serializer.RiddleSerializer
 
-    def get(self, *args, **kwargs):
-        pk = kwargs.get('pk')
-        object = get_object_or_404(models.RiddleModel, pk=pk)
-        return Response({'riddle': object}, status=200)
+class APICreatorDetailView(generics.RetrieveAPIView):
+    permission_classes = [AllowAny]
+    queryset = models.CreatorModel.objects.all()
+    serializer_class = serializer.CreatorSerializer
 
 class APIPlayingView(APIView):
     permission_classes = [AllowAny]
