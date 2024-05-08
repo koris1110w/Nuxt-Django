@@ -6,7 +6,7 @@
       </a>
       <div class="ml-4 flex flex-col">
         <a :href="`/list/${riddle.id}`" class="text-xl font-bold">{{ riddle.name }}</a>
-        <a :href="`/creator/${riddle.creator}`" class="text-lg hover:text-blue-400">{{ riddle.creator }}</a>
+        <a :href="`/creator/${riddle.creator.id}`" class="text-lg hover:text-blue-400">{{ riddle.creator.name }}</a>
         <div class="flex items-center mt-1">
           <el-rate
             v-model="riddle.rating"
@@ -38,7 +38,7 @@
           <el-icon :size="24" color="black">
             <Timer />
           </el-icon>
-          <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.time }}</span>
+          <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.time_str }}</span>
         </div>
         <div class="flex items-center mt-1">
           <el-icon :size="24" color="black">

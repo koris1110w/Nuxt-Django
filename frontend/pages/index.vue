@@ -10,8 +10,8 @@
   </div>
 </template>
 <script setup>
-  const { data: ranking } = await useFetch("http://localhost:80/api/v1/ranking/")
-  const { data: riddles } = await useFetch("http://localhost:80/api/v1/riddles/")
+  const { data: ranking } = await useFetch("http://localhost/api/v1/ranking/")
+  const { data: riddles } = await useFetch("http://localhost/api/v1/riddles/")
   const getRankingColor = (index) => {
     if(index == 0) {
       return "bg-yellow-400"
