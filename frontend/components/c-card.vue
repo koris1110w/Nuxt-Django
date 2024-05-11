@@ -1,17 +1,28 @@
 <template>
-  <el-card body-class="">
+  <div class="bg-gray-800 rounded-xl border border-gray-700 h-64 overflow-hidden">
     <div class="flex flex-row">
-      <a :href="`/list/${riddle.id}`">
-        <el-image :src="riddle.image" class="w-40"/>
+      <a :href="`/list/${riddle.id}`" class="relative">
+        <el-image :src="riddle.image" class="h-64" fit="cover"/>
+        <div className="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
+          <span className="flex items-center text-white absolute left-4 bottom-3">
+            <el-icon :size="16" color="">
+              <Key />
+            </el-icon>
+            <span class="ml-2">
+              {{ riddle.playings }}
+            </span>
+          </span>
+        </div>
       </a>
-      <div class="ml-4 flex flex-col">
-        <a :href="`/list/${riddle.id}`" class="text-xl font-bold">{{ riddle.name }}</a>
-        <a :href="`/creator/${riddle.creator.id}`" class="text-lg hover:text-blue-400">{{ riddle.creator.name }}</a>
-        <div class="flex items-center mt-1">
+      <div class="mx-4 my-2 flex flex-col">
+        <a :href="`/list/${riddle.id}`" class="text-2xl font-bold">{{ riddle.name }}</a>
+        <a :href="`/creator/${riddle.creator.id}`" class="text-lg text-gray-300 hover:text-blue-400">{{ riddle.creator.name }}</a>
+        <div class="flex items-center">
           <el-rate
             v-model="riddle.rating"
             disabled
-            size="large"
+            size=""
+            disabled-void-color="#8D9095"
           />
           <!-- <star-rating
             :increment="0.01"
@@ -24,40 +35,42 @@
             :inline="true"
             class="pb-1.5"
           ></star-rating> -->
-          <h3 class="ml-3 text-xl text-gray-300 font-semibold">
+          <h3 class="ml-1 text-xl text-gray-300 font-semibold">
             {{ riddle.rating }}
           </h3>
         </div>
-        <div class="flex items-center mt-3">
-          <el-icon :size="24" color="black">
-            <Location />
-          </el-icon>
-          <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.type }}</span>
-        </div>
-        <div class="flex items-center mt-1">
-          <el-icon :size="24" color="black">
-            <Timer />
-          </el-icon>
-          <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.time_str }}</span>
-        </div>
-        <div class="flex items-center mt-1">
-          <el-icon :size="24" color="black">
-            <Opportunity />
-          </el-icon>
-          <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.level }}</span>
-        </div>
-        <div class="flex items-center mt-1">
-          <el-icon :size="24" color="black">
-            <Calendar />
-          </el-icon>
-          <span
-            class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.release_date }} ~ {{ riddle.end_date }}</span>
+        <div class="grid grid-cols-1">
+          <div class="mt-1 flex items-center">
+            <el-icon :size="24" color="">
+              <Location />
+            </el-icon>
+            <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.type_str }}</span>
+          </div>
+          <div class="flex items-center mt-1">
+            <el-icon :size="24" color="">
+              <Timer />
+            </el-icon>
+            <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.time_str }}</span>
+          </div>
+          <div class="flex items-center mt-1">
+            <el-icon :size="24" color="">
+              <Opportunity />
+            </el-icon>
+            <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.level_str }}</span>
+          </div>
+          <!-- <div class="flex items-center mt-1">
+            <el-icon :size="24" color="">
+              <Calendar />
+            </el-icon>
+            <span
+              class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.release_date }} ~ {{ riddle.end_date }}</span>
+          </div> -->
         </div>
         <el-button
           type="primary"
           tag="a"
           size="large"
-          class="text-sm font-semibold mt-4"
+          class="text-sm font-semibold mt-4 w-40"
           :href="riddle.url"
           target="_blank"
           rel="noopener noreferrer"
@@ -65,10 +78,11 @@
         >謎解きサイトへ</el-button>
       </div>
     </div>
-  </el-card>
+  </div>
 </template>
 <script setup lang="ts">
   import {
+    Key,
     Location,
     Timer,
     Opportunity,
@@ -78,4 +92,11 @@
     riddle: object
   }
   const props = defineProps<Props>()
+  const playingRiddle = async (id) => {
+    const postData = {}
+    const { data } = await useFetch(`http://localhost:80/api/v1/riddles/${id}`, {
+      method: 'POST',
+      body: postData,
+    });
+  }
 </script>

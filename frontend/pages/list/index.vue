@@ -77,7 +77,7 @@
       <el-button type="primary" @click="filter" class="w-full" size="large">フィルター</el-button>
     </div>
   </div>
-  <div class="grid lg:grid-cols-2 lg:gap-y-16 gap-10">
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-y-4 gap-4">
     <c-card v-for="riddle in response.results" :key="riddle.id" :riddle="riddle"></c-card>
   </div>
   <div class="mt-4 flex justify-center items-center">
@@ -184,5 +184,5 @@
       order: selectOrder.value,
     }
   }
-  const { data: response, refresh } = await useFetch("http://localhost:80/api/v1/riddles/", { query })
+  const { data: response } = await useFetch("http://localhost:80/api/v1/riddles/", { query })
 </script>

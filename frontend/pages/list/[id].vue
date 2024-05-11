@@ -3,7 +3,7 @@
     <el-image :src="riddle.image" class="h-80 mx-auto"/>
     <div class="ml-4 flex flex-col">
       <a :href="`/list/${riddle.id}`" class="text-xl font-bold">{{ riddle.name }}</a>
-      <a :href="`/creator/${riddle.creator}`" class="text-lg hover:text-blue-400">{{ riddle.creator }}</a>
+      <a :href="`/creator/${riddle.creator.id}`" class="text-lg hover:text-blue-400">{{ riddle.creator.name }}</a>
       <div class="flex items-center mt-1">
         <el-rate
           v-model="riddle.rating"

@@ -1,11 +1,15 @@
 <template>
-  <html class="">
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+  <html class="dark bg-gray-900">
+    <body>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </body>
   </html>
 </template>
 <script setup>
+  import 'element-plus/theme-chalk/dark/css-vars.css'
+  import './assets/styles/main.css'
   useHead({
     title: "Nuxt3",
     link: [
