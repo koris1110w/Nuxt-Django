@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-gray-800 rounded-xl border border-gray-700 h-64 overflow-hidden">
+  <div class="bg-gray-800 rounded-md border border-gray-700 h-64 overflow-hidden">
     <div class="flex flex-row">
       <a :href="`/list/${riddle.id}`" class="relative">
         <el-image :src="riddle.image" class="h-64" fit="cover"/>
         <div className="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
           <span className="flex items-center text-white absolute left-4 bottom-3">
             <el-icon :size="16" color="">
-              <Key />
+              <VideoPlay />
             </el-icon>
             <span class="ml-2">
               {{ riddle.playings }}
@@ -54,17 +54,10 @@
           </div>
           <div class="flex items-center mt-1">
             <el-icon :size="24" color="">
-              <Opportunity />
+              <Key />
             </el-icon>
             <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.level_str }}</span>
           </div>
-          <!-- <div class="flex items-center mt-1">
-            <el-icon :size="24" color="">
-              <Calendar />
-            </el-icon>
-            <span
-              class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.release_date }} ~ {{ riddle.end_date }}</span>
-          </div> -->
         </div>
         <el-button
           type="primary"
@@ -82,6 +75,7 @@
 </template>
 <script setup lang="ts">
   import {
+    VideoPlay,
     Key,
     Location,
     Timer,

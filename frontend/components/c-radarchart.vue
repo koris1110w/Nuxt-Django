@@ -46,12 +46,12 @@ const data:ChartData<'radar'> = {
   datasets: [
     {
       label: '評価',
-      backgroundColor: 'rgba(179,181,198,0.2)',
-      borderColor: 'rgba(179,181,198,1)',
-      pointBackgroundColor: 'rgba(179,181,198,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(179,181,198,1)',
+      backgroundColor: 'rgba(247, 186, 41, 0.2)',
+      borderColor: '#F7BA29',
+      pointBackgroundColor: '#F7BA29',
+      pointBorderColor: '#F7BA29',
+      pointHoverBackgroundColor: '#ffa503',
+      pointHoverBorderColor: '#ffa503',
       data: [props.riddle.rating_story, props.riddle.rating_gimmick, props.riddle.rating_sukkiri, props.riddle.rating_level]
     }
   ]
@@ -65,6 +65,23 @@ const options:ChartOptions<'radar'> = {
   maintainAspectRatio: false,
   scales: {
     r: {
+      backgroundColor: "",
+      pointLabels: {
+        font: {
+          size: 14
+        },
+        color: "rgb(209, 213, 219)"
+      },
+      angleLines: {
+        color: "rgb(209, 213, 219)"
+      },
+      grid: {
+        color: "rgb(209, 213, 219)"
+      },
+      ticks: {
+        color: "rgb(209, 213, 219)",
+        backdropColor: "#111827"
+      },
       max: 5,
       min: 0,
     },

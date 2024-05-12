@@ -1,10 +1,8 @@
 <template>
   <html class="dark bg-gray-900">
-    <body>
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
-    </body>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </html>
 </template>
 <script setup>
