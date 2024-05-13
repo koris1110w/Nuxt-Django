@@ -6,7 +6,7 @@
         <div className="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
           <span className="flex items-center text-white absolute left-4 bottom-3">
             <el-icon :size="16" color="">
-              <Key />
+              <VideoPlay />
             </el-icon>
             <span class="ml-2">
               {{ riddle.playings }}
@@ -16,8 +16,8 @@
       </span>
     </div>
     <div class="ml-4 flex flex-col">
-      <a :href="`/list/${riddle.id}`" class="text-xl font-bold">{{ riddle.name }}</a>
-      <a :href="`/creator/${riddle.creator.id}`" class="text-lg hover:text-blue-400">{{ riddle.creator.name }}</a>
+      <a :href="`/list/${riddle.id}`" class="text-xl font-bold break-words">{{ riddle.name }}</a>
+      <a :href="`/creator/${riddle.creator.id}`" class="text-lg hover:text-blue-400 break-words">{{ riddle.creator.name }}</a>
       <div class="flex items-center mt-1">
         <el-rate
           v-model="riddle.rating"
@@ -28,33 +28,37 @@
           {{ riddle.rating }}
         </h3>
       </div>
-      <div class="grid grid-cols-1">
-          <div class="mt-1 flex items-center">
-            <el-icon :size="24" color="">
-              <Location />
-            </el-icon>
-            <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.type_str }}</span>
-          </div>
-          <div class="flex items-center mt-1">
-            <el-icon :size="24" color="">
-              <Timer />
-            </el-icon>
-            <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.time_str }}</span>
-          </div>
-          <div class="flex items-center mt-1">
-            <el-icon :size="24" color="">
-              <Opportunity />
-            </el-icon>
-            <span class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.level_str }}</span>
-          </div>
-          <div class="flex items-center mt-1">
-            <el-icon :size="24" color="">
-              <Calendar />
-            </el-icon>
-            <span
-              class="mx-4 text-gray-700 dark:text-gray-300">{{ riddle.release_date }} ~ {{ riddle.end_date }}</span>
-          </div>
+      <div class="grid grid-cols-1 gap-1">
+        <div class="mt-1 flex items-center">
+          <el-icon :size="24" color="">
+            <Location />
+          </el-icon>
+          <span class="ml-2 text-gray-700 dark:text-gray-300 font-semibold">タイプ</span>
+          <span class="ml-10 text-gray-700 dark:text-gray-300">{{ riddle.type_str }}</span>
         </div>
+        <div class="flex items-center mt-1">
+          <el-icon :size="24" color="">
+            <Timer />
+          </el-icon>
+          <span class="ml-2 text-gray-700 dark:text-gray-300 font-semibold">所要時間</span>
+          <span class="mx-10 text-gray-700 dark:text-gray-300">{{ riddle.time_str }}</span>
+        </div>
+        <div class="flex items-center mt-1">
+          <el-icon :size="24" color="">
+            <Key />
+          </el-icon>
+          <span class="ml-2 text-gray-700 dark:text-gray-300 font-semibold">難易度</span>
+          <span class="mx-10 text-gray-700 dark:text-gray-300">{{ riddle.level_str }}</span>
+        </div>
+        <div class="flex items-center mt-1">
+          <el-icon :size="24" color="">
+            <Calendar />
+          </el-icon>
+          <span class="ml-2 text-gray-700 dark:text-gray-300 font-semibold">ゲーム期間</span>
+          <span
+            class="mx-10 text-gray-700 dark:text-gray-300">{{ riddle.start_date }} ~ {{ riddle.end_date }}</span>
+        </div>
+      </div>
       <el-button
         type="primary"
         tag="a"
@@ -74,22 +78,25 @@
          />
     </div>
   </div>
-  <el-collapse>
-    <el-collapse-item title="説明">
-      <div>
-        {{ riddle.description }}
-      </div>
-    </el-collapse-item>
-  </el-collapse>
+  <div class="container mt-10 px-4 sm:px-0">
+    <el-collapse v-model="activeName">
+      <el-collapse-item title="説明" name="1">
+        <div class="text-xl">
+          {{ riddle.description }}
+        </div>
+      </el-collapse-item>
+    </el-collapse>
+  </div>
 </template>
-<script setup>
+<script setup lang="ts">
   import {
+    VideoPlay,
     Key,
     Location,
     Timer,
-    Opportunity,
     Calendar,
   } from '@element-plus/icons-vue'
+  const activeName = ref('1')
   const id = useRoute().params.id
   const { data: riddle, error } = await useFetch(`http://localhost:80/api/v1/riddles/${id}`)
 </script>

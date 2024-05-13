@@ -38,10 +38,11 @@ ChartJS.register(CategoryScale, LinearScale, BarElement,PointElement ,RadialLine
 // 他にも<"bar">などがあります。
 const data:ChartData<'radar'> = {
   labels: [
-    'ストーリー性',
+    'スッキリ度',
     'ギミック',
-    'スッキリ感',
     '難易度',
+    '物量',
+    'ストーリー',
   ],
   datasets: [
     {
@@ -52,7 +53,13 @@ const data:ChartData<'radar'> = {
       pointBorderColor: '#F7BA29',
       pointHoverBackgroundColor: '#ffa503',
       pointHoverBorderColor: '#ffa503',
-      data: [props.riddle.rating_story, props.riddle.rating_gimmick, props.riddle.rating_sukkiri, props.riddle.rating_level]
+      data: [
+        props.riddle.rating_sukkiri, 
+        props.riddle.rating_gimmick, 
+        Number(props.riddle.level),
+        Number(props.riddle.time),
+        props.riddle.rating_story, 
+      ]
     }
   ]
 };
@@ -80,7 +87,8 @@ const options:ChartOptions<'radar'> = {
       },
       ticks: {
         color: "rgb(209, 213, 219)",
-        backdropColor: "#111827"
+        backdropColor: "#111827",
+        stepSize: 1
       },
       max: 5,
       min: 0,

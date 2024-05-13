@@ -98,23 +98,23 @@
   const timeSet = [
     {
       title: "〜15分",
-      value: "10",
+      value: "1",
     },
     {
       title: "15分〜45分",
-      value: "30",
+      value: "2",
     },
     {
       title: "45分〜90分",
-      value: "60",
+      value: "3",
     },
     {
       title: "90分〜180分",
-      value: "120",
+      value: "4",
     },
     {
       title: "180分〜",
-      value: "300",
+      value: "5",
     },
   ]
   const levelSet = [
@@ -123,12 +123,20 @@
       value: "1",
     },
     {
-      title: "中級",
+      title: "初中級",
       value: "2",
     },
     {
-      title: "上級",
+      title: "中級",
       value: "3",
+    },
+    {
+      title: "上級",
+      value: "4",
+    },
+    {
+      title: "超上級",
+      value: "5",
     },
   ]
   const orderSet = [

@@ -1,7 +1,7 @@
 <template>
   <el-carousel type="card" trigger="click" indicator-position="outside">
     <el-carousel-item v-for="(riddle, index) in ranking" :key="riddle.id">
-      <c-card :riddle="riddle" class="relative"></c-card>
+      <c-rankingCard :riddle="riddle" class="relative"></c-rankingCard>
       <div class="absolute top-3 left-3 text-white w-8 h-8 font-bold flex items-center justify-center" :class="getRankingColor(index)">{{ index + 1 }}</div>
     </el-carousel-item>
   </el-carousel>

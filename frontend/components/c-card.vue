@@ -3,8 +3,8 @@
     <div class="flex flex-row">
       <a :href="`/list/${riddle.id}`" class="relative">
         <el-image :src="riddle.image" class="h-64" fit="cover"/>
-        <div className="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
-          <span className="flex items-center text-white absolute left-4 bottom-3">
+        <div className="absolute inset-x-0 bottom-0 h-9 bg-black bg-opacity-70">
+          <span className="flex items-center text-white absolute left-2 bottom-2">
             <el-icon :size="16" color="">
               <VideoPlay />
             </el-icon>
@@ -15,8 +15,8 @@
         </div>
       </a>
       <div class="mx-4 my-2 flex flex-col">
-        <a :href="`/list/${riddle.id}`" class="text-2xl font-bold">{{ riddle.name }}</a>
-        <a :href="`/creator/${riddle.creator.id}`" class="text-lg text-gray-300 hover:text-blue-400">{{ riddle.creator.name }}</a>
+        <a :href="`/list/${riddle.id}`" class="text-2xl font-bold truncate w-52">{{ riddle.name }}</a>
+        <a :href="`/creator/${riddle.creator.id}`" class="text-lg text-gray-300 hover:text-blue-400 truncate w-52">{{ riddle.creator.name }}</a>
         <div class="flex items-center">
           <el-rate
             v-model="riddle.rating"
@@ -79,8 +79,6 @@
     Key,
     Location,
     Timer,
-    Opportunity,
-    Calendar,
   } from '@element-plus/icons-vue'
   interface Props {
     riddle: object
