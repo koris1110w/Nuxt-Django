@@ -15,6 +15,7 @@
       >クリエイターページへ</el-button>
     </div>
   </div>
+  <h1 class="text-xl font-bold text-white my-4">{{ creator.name }}の謎解き一覧</h1>
   <div class="grid grid-cols-2 lg:grid-cols-6 gap-4 mb-4 items-center">
     <!-- ワード検索 -->
     <div class="cols-span-1">
