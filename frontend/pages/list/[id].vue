@@ -55,8 +55,8 @@
             <Calendar />
           </el-icon>
           <span class="ml-2 text-gray-700 dark:text-gray-300 font-semibold">ゲーム期間</span>
-          <span
-            class="mx-10 text-gray-700 dark:text-gray-300">{{ riddle.start_date }} ~ {{ riddle.end_date }}</span>
+          <span v-if="riddle.start_date || riddle.end_date" class="mx-10 text-gray-700 dark:text-gray-300">{{ riddle.start_date }} ~ {{ riddle.end_date }}</span>
+          <span v-else class="mx-10 text-gray-700 dark:text-gray-300">情報なし</span>
         </div>
       </div>
       <el-button
