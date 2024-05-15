@@ -5,4 +5,9 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss", 
     "@element-plus/nuxt", 
   ],
+  runtimeConfig: {
+    public: {
+        apiUrl: '',
+    }
+  },
 })

@@ -98,5 +98,6 @@
   } from '@element-plus/icons-vue'
   const activeName = ref('1')
   const id = useRoute().params.id
-  const { data: riddle, error } = await useFetch(`http://localhost:80/api/v1/riddles/${id}`)
+  const runtimeConfig = useRuntimeConfig();
+  const { data: riddle, error } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/${id}`)
 </script>

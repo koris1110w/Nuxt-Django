@@ -9,6 +9,8 @@ services:
       - ./backend:/code
       - static:/code/static_root
       - media:/code/media
+    env_file:
+      - ./.env.dev
     depends_on:
       - db
   

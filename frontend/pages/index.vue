@@ -24,8 +24,9 @@
   </div>
 </template>
 <script setup>
-  const { data: ranking } = await useFetch("http://localhost/api/v1/ranking/")
-  const { data: riddles } = await useFetch("http://localhost/api/v1/riddles/")
+  const runtimeConfig = useRuntimeConfig();
+  const { data: ranking } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/ranking/`)
+  const { data: riddles } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/`)
   const getRankingColor = (index) => {
     if(index == 0) {
       return "bg-yellow-400"

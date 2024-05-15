@@ -193,5 +193,7 @@
       order: selectOrder.value,
     }
   }
-  const { data: response } = await useFetch("http://localhost:80/api/v1/riddles/", { query })
+
+  const runtimeConfig = useRuntimeConfig();
+  const { data: response } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/`, { query })
 </script>
