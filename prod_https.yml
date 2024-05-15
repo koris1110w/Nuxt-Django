@@ -33,7 +33,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./nginx_prod_conf:/etc/nginx/conf.d
+      - ./nginx_prod_https_conf:/etc/nginx/conf.d
       - static:/code/static_root
       - media:/code/media
     depends_on:
