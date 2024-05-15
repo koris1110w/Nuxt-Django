@@ -1,0 +1,57 @@
+version: "3"
+services:
+  backend:
+    build: ./backend
+    command: bash -c "python manage.py migrate && python manage.py collectstatic --no-input --clear && gunicorn --workers 3  --bind  0.0.0.0:8000 project.wsgi:application"
+    expose:
+      - "8000"
+    volumes:
+      - static:/code/static_root
+      - media:/code/media
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+
+    expose:
+      - "3000"
+    command: "npm run start"
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  nginx:
+    image: nginx:1.13
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx_prod_conf:/etc/nginx/conf.d
+      - static:/code/static_root
+      - media:/code/media
+    depends_on:
+      - backend
+      - frontend
+
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    restart: always
+    environment:
+      DOMAINS: 'nazotokidb.com -> http://nginx:8080'
+      # STAGE: 'production' # Don't use production until staging works
+      # FORCE_RENEW: 'true'
+
+volumes:
+  static:
+  media:
+  pgdata:
