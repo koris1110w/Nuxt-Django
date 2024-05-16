@@ -175,7 +175,7 @@
     }
   ]
   const id = useRoute().params.id
-  const { data: creator } = await useFetch(`http://localhost:80/api/v1/creator/${id}`)
+  const { data: creator } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/creator/${id}`)
   const page = ref(1)
   const selectWord = ref("")
   const selectType = reactive([])
@@ -214,5 +214,5 @@
       order: selectOrder.value,
     }
   }
-  const { data: response } = await useFetch("http://localhost:80/api/v1/riddles/", { query })
+  const { data: response } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/`, { query })
 </script>

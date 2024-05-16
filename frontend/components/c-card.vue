@@ -86,7 +86,7 @@
   const props = defineProps<Props>()
   const playingRiddle = async (id) => {
     const postData = {}
-    const { data } = await useFetch(`http://localhost:80/api/v1/playing/${id}/`, {
+    const { data } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/playing/${id}/`, {
       method: 'POST',
       body: postData,
     });
