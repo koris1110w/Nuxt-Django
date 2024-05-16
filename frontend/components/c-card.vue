@@ -64,10 +64,10 @@
           tag="a"
           size="large"
           class="text-sm font-semibold mt-4 w-40"
+          @click="playingRiddle(riddle.id)"
           :href="riddle.url"
           target="_blank"
           rel="noopener noreferrer"
-          @click="playingRiddle(riddle.id)"
         >謎解きサイトへ</el-button>
       </div>
     </div>
@@ -86,7 +86,7 @@
   const props = defineProps<Props>()
   const playingRiddle = async (id) => {
     const postData = {}
-    const { data } = await useFetch(`http://localhost:80/api/v1/riddles/${id}`, {
+    const { data } = await useFetch(`http://localhost:80/api/v1/playing/${id}/`, {
       method: 'POST',
       body: postData,
     });
