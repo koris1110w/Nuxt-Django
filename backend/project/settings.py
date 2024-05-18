@@ -61,6 +61,7 @@ USE_X_FORWARDED_HOST = True
 USE_X_FORWARDED_PORT = True
 
 CORS_ALLOWED_ORIGINS = os.environ.get("CORS_ALLOWED_ORIGINS").split(" ")
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(" ")
 
 os.environ.get("ALLOWED_HOSTS").split(" ")
 
