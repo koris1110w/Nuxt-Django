@@ -53,8 +53,11 @@ services:
       DOMAINS: 'nazotokidb.com -> http://nginx:8080'
       STAGE: 'production' # Don't use production until staging works
       # FORCE_RENEW: 'true'
+    volumes: # ここを書いていなかった
+      - https-portal-data:/var/lib/https-portal # ここを書いていなかった
 
 volumes:
   static:
   media:
   pgdata:
+  https-portal-data:

@@ -9,6 +9,7 @@
       :breakpoints="breakpoints"
       :wrapAround="true"
       snapAlign="start"
+      :autoplay="5000"
     >
       <slide v-for="(riddle, index) in ranking" :key="riddle.id">
         <c-rankingCard :riddle="riddle" :index="index" class="relative"></c-rankingCard>
