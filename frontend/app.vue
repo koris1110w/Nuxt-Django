@@ -9,7 +9,7 @@
   import 'element-plus/theme-chalk/dark/css-vars.css'
   import './assets/styles/main.css'
   useHead({
-    title: "Nuxt3",
+    title: "謎解きデータベース",
     link: [
       {rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"}
     ]

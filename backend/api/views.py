@@ -21,7 +21,7 @@ class APIRiddleListView(generics.ListAPIView):
 
 class APIRankingView(generics.ListAPIView):
     permission_classes = [AllowAny]
-    queryset = models.RiddleModel.objects.order_by('rating').reverse()[0:5]
+    queryset = models.RiddleModel.objects.order_by('rating').reverse()[0:10]
     serializer_class = serializer.RiddleSerializer
 
 class APIRiddleDetailView(generics.RetrieveAPIView):

@@ -6,13 +6,14 @@
         {{ creator.name }}
       </h3>
       <el-button
+        round
         type="primary"
         tag="a"
         class="text-sm font-semibold h-10 mt-4"
         :href="creator.url"
         target="_blank"
         rel="noopener noreferrer"
-      >クリエイターページへ</el-button>
+      >クリエイターサイトへ</el-button>
     </div>
   </div>
   <h1 class="text-xl font-bold text-white my-4">{{ creator.name }}の謎解き一覧</h1>
@@ -108,7 +109,7 @@
       value: "web",
     },
     {
-      title: "LINE",
+      title: "LINE@",
       value: "line",
     },
   ]
@@ -175,6 +176,7 @@
     }
   ]
   const id = useRoute().params.id
+  const runtimeConfig = useRuntimeConfig();
   const { data: creator } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/creator/${id}`)
   const page = ref(1)
   const selectWord = ref("")
@@ -215,4 +217,8 @@
     }
   }
   const { data: response } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/`, { query })
+  useSeoMeta({
+    title: () => `${creator.value.name} | 謎解きデータベース`,
+    ogTitle: () => `${creator.value.name} | 謎解きデータベース`,
+  });
 </script>

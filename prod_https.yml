@@ -51,7 +51,7 @@ services:
     restart: always
     environment:
       DOMAINS: 'nazotokidb.com -> http://nginx:8080'
-      # STAGE: 'production' # Don't use production until staging works
+      STAGE: 'production' # Don't use production until staging works
       # FORCE_RENEW: 'true'
 
 volumes:

@@ -1,8 +1,4 @@
 <template>
-  <el-button
-    type="primary"
-    @click="test()"
-  >謎解きサイトへ</el-button>
   <h1 class="text-xl font-bold text-white my-4">利用規約</h1>
   <el-card class="m-4" shadow="never">
     <template #header>
@@ -147,6 +143,10 @@
   </el-card>
 </template>
 <script>
+  useSeoMeta({
+    title: '利用規約 | 謎解きデータベース',
+    ogTitle: '利用規約 | 謎解きデータベース',
+  });
   const test = async () => {
     const { data } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/1`)
     console.log(data.name)

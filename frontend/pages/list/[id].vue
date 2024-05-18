@@ -2,9 +2,9 @@
   <div class="grid lg:grid-cols-3 gap-4">
     <div class="flex justify-center">
       <span class="relative"> 
-        <el-image :src="riddle.image" class="h-80" fit="cover"/>
+        <el-image :src="riddle.image" class="h-96" fit="cover" :preview-src-list="[riddle.image]" :initial-index="0"/>
         <div className="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
-          <span className="flex items-center text-white absolute left-4 bottom-3">
+          <span className="flex items-center text-white absolute left-3 bottom-2">
             <el-icon :size="16" color="">
               <VideoPlay />
             </el-icon>
@@ -16,8 +16,8 @@
       </span>
     </div>
     <div class="ml-4 flex flex-col">
-      <a :href="`/list/${riddle.id}`" class="text-xl font-bold break-words">{{ riddle.name }}</a>
-      <a :href="`/creator/${riddle.creator.id}`" class="text-lg hover:text-blue-400 break-words">{{ riddle.creator.name }}</a>
+      <a class="text-xl font-bold break-words">{{ riddle.name }}</a>
+      <a :href="`/creator/${riddle.creator.id}`" class="text-lg text-gray-400 hover:text-blue-400 break-words">{{ riddle.creator.name }}</a>
       <div class="flex items-center mt-1">
         <el-rate
           v-model="riddle.rating"
@@ -52,6 +52,13 @@
         </div>
         <div class="flex items-center mt-1">
           <el-icon :size="24" color="">
+            <VideoPlay />
+          </el-icon>
+          <span class="ml-2 text-gray-700 dark:text-gray-300 font-semibold">プレイ回数</span>
+          <span class="mx-10 text-gray-700 dark:text-gray-300">{{ riddle.playings }}回</span>
+        </div>
+        <div class="flex items-center mt-1">
+          <el-icon :size="24" color="">
             <Calendar />
           </el-icon>
           <span class="ml-2 text-gray-700 dark:text-gray-300 font-semibold">ゲーム期間</span>
@@ -60,6 +67,7 @@
         </div>
       </div>
       <el-button
+        round
         type="primary"
         tag="a"
         size="large"
@@ -100,4 +108,15 @@
   const id = useRoute().params.id
   const runtimeConfig = useRuntimeConfig();
   const { data: riddle, error } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/${id}`)
+  const playingRiddle = async (id) => {
+    const postData = {}
+    const { data } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/playing/${id}/`, {
+      method: 'POST',
+      body: postData,
+    });
+  }
+  useSeoMeta({
+    title: () => `${riddle.value.name} | 謎解きデータベース`,
+    ogTitle: () => `${riddle.value.name} | 謎解きデータベース`,
+  });
 </script>
