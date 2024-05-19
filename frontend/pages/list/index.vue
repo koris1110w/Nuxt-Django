@@ -1,19 +1,19 @@
 <template>
   <div class="mx-4">
     <h1 class="text-xl font-bold text-white my-4">謎解き一覧</h1>
-    <div class="grid grid-cols-2 lg:grid-cols-6 gap-4 mb-4 items-center">
-      <!-- ワード検索 -->
-      <div class="cols-span-1">
+    <div class="grid grid-cols-2 lg:grid-cols-7 gap-4 mb-4 items-center">
+      <!-- キーワード検索 -->
+      <div class="col-span-1">
         <el-input
           v-model="selectWord"
-          placeholder="ワード検索"
+          placeholder="キーワード検索"
           clearable
           class="h-10"
           :prefix-icon="Search"
         ></el-input>
       </div>
       <!-- タイプ検索-->
-      <div class="cols-span-1">
+      <div class="col-span-1">
         <el-select
           multiple
           v-model="selectType.value"
@@ -29,7 +29,7 @@
         </el-select>
       </div>
       <!-- 時間検索 -->
-      <div class="cols-span-1">
+      <div class="col-span-1">
         <el-select
           multiple
           v-model="selectTime.value"
@@ -45,7 +45,7 @@
         </el-select>
       </div>
       <!-- 難易度検索 -->
-      <div class="cols-span-1">
+      <div class="col-span-1">
         <el-select
           multiple
           v-model="selectLevel.value"
@@ -60,8 +60,24 @@
           ></el-option>
         </el-select>
       </div>
+      <!-- タグ検索 -->
+      <div class="col-span-1">
+        <el-select
+          multiple
+          v-model="selectTag.value"
+          placeholder="タグ"
+          size="large"
+        >
+          <el-option
+            v-for="item in tagSet"
+            :key="item.value"
+            :label="item.title"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+      </div>
       <!-- 並び替え -->
-      <div class="cols-span-1">
+      <div class="col-span-1">
         <el-select
           v-model="selectOrder"
           placeholder="並べ替え"
@@ -76,7 +92,7 @@
         </el-select>
       </div>
       <!-- フィルター -->
-      <div class="cols-span-1">
+      <div class="col-span-2 lg:col-span-1">
         <el-button type="primary" @click="filter" class="w-full" size="large" :icon="Filter">フィルター</el-button>
       </div>
     </div>
@@ -147,6 +163,20 @@
       value: "5",
     },
   ]
+  const tagSet = [
+    {
+      title: "ストーリー◎",
+      value: "story",
+    },
+    {
+      title: "ギミック◎",
+      value: "gimmick",
+    },
+    {
+      title: "スッキリ◎",
+      value: "sukkiri",
+    },
+  ]
   const orderSet = [
     {
       title: "新着順",
@@ -170,6 +200,7 @@
   const selectType = reactive([])
   const selectTime = reactive([])
   const selectLevel = reactive([])
+  const selectTag = reactive([])
   const selectOrder = ref("created_at")
   const query = ref({ 
     page: page.value,
@@ -177,6 +208,7 @@
     type: selectType.value,
     time: selectTime.value,
     level: selectLevel.value,
+    tag: selectTag.value,
     order: selectOrder.value,
   })
   const filter = () => {
@@ -187,6 +219,7 @@
       type: selectType.value,
       time: selectTime.value,
       level: selectLevel.value,
+      tag: selectTag.value,
       order: selectOrder.value,
     }
   }
@@ -197,6 +230,7 @@
       type: selectType.value,
       time: selectTime.value,
       level: selectLevel.value,
+      tag: selectTag.value,
       order: selectOrder.value,
     }
   }

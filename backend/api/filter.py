@@ -23,6 +23,12 @@ LEVEL_SET = (
     (4, "超上級")
 )
 
+TAG_SET = (
+    ("sukkiri", "スッキリ"),
+    ("story", "ストーリー"),
+    ("gimmick", "ギミック")
+)
+
 class RiddleFilter(filters.FilterSet):
     type = filters.MultipleChoiceFilter(choices=models.TYPE_SET)
     time = filters.MultipleChoiceFilter(choices=models.TIME_SET)
@@ -30,6 +36,7 @@ class RiddleFilter(filters.FilterSet):
     creator = filters.NumberFilter()
     word = filters.CharFilter(method='wordFilter')
     order = filters.CharFilter(method='orderFilter')
+    tag = filters.MultipleChoiceFilter(choices=TAG_SET, method='tagFilter')
 
     class Meta:
         model = models.RiddleModel
@@ -41,6 +48,15 @@ class RiddleFilter(filters.FilterSet):
     
     def orderFilter(self,queryset,name,value):
         return queryset.order_by(value).reverse()
+    
+    def tagFilter(self,queryset,name,values):
+        if "sukkiri" in values:
+            queryset = queryset.filter(rating_sukkiri__gte=4)
+        if "story" in values:
+            queryset = queryset.filter(rating_story__gte=4)
+        if "gimmick" in values:
+            queryset = queryset.filter(rating_gimmick__gte=4)
+        return queryset
     
     # def timeFilter(self,queryset,name,value):
     #     print(value)

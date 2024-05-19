@@ -2,8 +2,40 @@
   <div class="bg-gray-800 rounded-md border border-gray-700 overflow-hidden w-48 h-76 pb-2">
     <div class="flex flex-col">
       <a :href="`/list/${riddle.id}`" class="relative">
-        <el-image :src="riddle.image" class="w-48 h-44 relative" fit="cover"/>
+        <el-image :src="riddle.image" class="w-48 h-44" fit="cover"/>
         <div class="absolute top-2 left-2 text-white w-8 h-8 font-bold flex items-center justify-center" :class="getRankingColor(index)">{{ index + 1 }}</div>
+        <div class="flex flex-wrap-reverse absolute bottom-9 left-0">
+          <el-tag
+            v-if="riddle.rating_story >= 4"
+            class="mt-1 ml-1"
+            type="primary"
+            effect="light"
+            round
+            size="small"
+          >
+            ストーリー◎
+          </el-tag>
+          <el-tag
+            v-if="riddle.rating_gimmick >= 4"
+            class="mt-1 ml-1"
+            type="primary"
+            effect="light"
+            round
+            size="small"
+          >
+            ギミック◎
+          </el-tag>
+          <el-tag
+            v-if="riddle.rating_sukkiri >= 4"
+            class="mt-1 ml-1"
+            type="primary"
+            effect="light"
+            round
+            size="small"
+          >
+            スッキリ◎
+          </el-tag>
+        </div>
         <div className="absolute inset-x-0 bottom-0 h-8 bg-black bg-opacity-70">
           <span className="flex items-center text-white absolute left-2 bottom-1">
             <el-icon :size="16" color="">

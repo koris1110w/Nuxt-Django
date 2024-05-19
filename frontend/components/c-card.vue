@@ -1,20 +1,42 @@
 <template>
   <div class="bg-gray-800 rounded-md border border-gray-700 h-56 overflow-hidden">
-    <div class="flex flex-row">
-      <a :href="`/list/${riddle.id}`" class="relative">
+    <div class="flex flex-row w-44 h-56 relative">
+      <a :href="`/list/${riddle.id}`">
         <el-image :src="riddle.image" class="w-44 h-56" fit="cover"/>
-        <div class="absolute bottom-10 left-5">
+        <div class="flex flex-wrap-reverse absolute bottom-9 left-0">
           <el-tag
+            v-if="riddle.rating_story >= 4"
+            class="mt-1 ml-1"
             type="primary"
             effect="light"
             round
             size="small"
           >
-            ストーリー
+            ストーリー◎
+          </el-tag>
+          <el-tag
+            v-if="riddle.rating_gimmick >= 4"
+            class="mt-1 ml-1"
+            type="primary"
+            effect="light"
+            round
+            size="small"
+          >
+            ギミック◎
+          </el-tag>
+          <el-tag
+            v-if="riddle.rating_sukkiri >= 4"
+            class="mt-1 ml-1"
+            type="primary"
+            effect="light"
+            round
+            size="small"
+          >
+            スッキリ◎
           </el-tag>
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-9 bg-black bg-opacity-70">
-          <span className="flex items-center text-white absolute left-2 bottom-2">
+        <div className="absolute inset-x-0 bottom-0 h-8 bg-black bg-opacity-70">
+          <span className="flex items-center text-white absolute left-2 bottom-1">
             <el-icon :size="16" color="">
               <VideoPlay />
             </el-icon>
