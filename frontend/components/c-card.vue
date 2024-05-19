@@ -3,6 +3,16 @@
     <div class="flex flex-row">
       <a :href="`/list/${riddle.id}`" class="relative">
         <el-image :src="riddle.image" class="w-44 h-56" fit="cover"/>
+        <div class="absolute bottom-10 left-5">
+          <el-tag
+            type="primary"
+            effect="light"
+            round
+            size="small"
+          >
+            ストーリー
+          </el-tag>
+        </div>
         <div className="absolute inset-x-0 bottom-0 h-9 bg-black bg-opacity-70">
           <span className="flex items-center text-white absolute left-2 bottom-2">
             <el-icon :size="16" color="">
