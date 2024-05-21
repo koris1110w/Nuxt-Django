@@ -14,7 +14,7 @@
     const runtimeConfig = useRuntimeConfig();
     console.log(runtimeConfig.public.test)
     console.log(runtimeConfig.public.apiUrl)
-    const { data: riddles } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/`)
-    console.log(riddles.value.results[0].name)
+    const { data: riddles, error } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/`)
+    console.log(error)
   }
 </script>
