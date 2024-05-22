@@ -6,7 +6,7 @@
         <div class="absolute top-2 left-2 text-white w-8 h-8 font-bold flex items-center justify-center" :class="getRankingColor(index)">{{ index + 1 }}</div>
         <div class="flex flex-wrap-reverse absolute bottom-9 left-0">
           <el-tag
-            v-if="riddle.rating_story >= 4"
+            v-if="riddle.story >= 4"
             class="mt-1 ml-1"
             type="primary"
             effect="light"
@@ -16,7 +16,7 @@
             ストーリー◎
           </el-tag>
           <el-tag
-            v-if="riddle.rating_gimmick >= 4"
+            v-if="riddle.gimmick >= 4"
             class="mt-1 ml-1"
             type="primary"
             effect="light"
@@ -26,7 +26,7 @@
             ギミック◎
           </el-tag>
           <el-tag
-            v-if="riddle.rating_sukkiri >= 4"
+            v-if="riddle.sukkiri >= 4"
             class="mt-1 ml-1"
             type="primary"
             effect="light"

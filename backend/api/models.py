@@ -4,7 +4,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 TYPE_SET = (
     ("web", "WEB"),
-    ("line", "LINE"),
+    ("line", "LINE@"),
 )
 
 TIME_SET = (
@@ -36,12 +36,12 @@ class RiddleModel(models.Model):
     image = models.ImageField(upload_to='')
     description = models.TextField()
     type = models.CharField(choices=TYPE_SET, max_length=10)
-    time = models.CharField(choices=TIME_SET, max_length=10)
-    level = models.CharField(choices=LEVEL_SET, max_length=10)
     rating = models.FloatField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
-    rating_sukkiri = models.FloatField(default=0, validators=[MinValueValidator(1), MaxValueValidator(5)])
-    rating_story = models.FloatField(default=0, validators=[MinValueValidator(1), MaxValueValidator(5)])
-    rating_gimmick = models.FloatField(default=0, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    level = models.FloatField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    time = models.FloatField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    sukkiri = models.FloatField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    story = models.FloatField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    gimmick = models.FloatField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
     creator = models.ForeignKey(CreatorModel, on_delete=models.CASCADE)
@@ -52,3 +52,14 @@ class RiddleModel(models.Model):
 
     def __str__(self):
         return self.name
+    
+class ReviewModel(models.Model):
+    user = models.ForeignKey(User, verbose_name="投稿者", on_delete=models.CASCADE)
+    riddle = models.ForeignKey(RiddleModel, verbose_name="謎", on_delete=models.CASCADE)
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    level = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    time = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    sukkiri = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    story = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    gimmick = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    created_at = models.DateTimeField(auto_now_add=True)

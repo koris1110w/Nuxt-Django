@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from . import models
+from django.db.models import Avg
 
 class CreatorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,8 +11,8 @@ class CreatorSerializer(serializers.ModelSerializer):
 class RiddleSerializer(serializers.ModelSerializer):
     creator = CreatorSerializer(read_only=True)
     type_str = serializers.SerializerMethodField("get_type_str")
-    time_str = serializers.SerializerMethodField("get_time_str")
     level_str = serializers.SerializerMethodField("get_level_str")
+    time_str = serializers.SerializerMethodField("get_time_str")
 
     class Meta:
         model = models.RiddleModel
@@ -20,29 +21,33 @@ class RiddleSerializer(serializers.ModelSerializer):
 
     def get_type_str(self, obj):
         return obj.get_type_display()
-    
+
     def get_time_str(self, obj):
-        return obj.get_time_display()
-        # if obj.rating_quantity == 0:
-        #     return "評価なし"
-        # elif obj.rating_quantity < 2:
-        #     return "〜30分"
-        # elif obj.rating_quantity < 3:
-        #     return "30〜90分"
-        # elif obj.rating_quantity < 4:
-        #     return "90〜180分"
-        # elif obj.rating_quantity < 5:
-        #     return "180分〜"
+        time = obj.time
+        if time <= 2:
+            time_str = "〜30分"
+        elif time <= 3:
+            time_str = "30〜90分"
+        elif time <= 4:
+            time_str = "90〜180分"
+        elif time <= 5:
+            time_str = "180分〜"
+        return time_str
     
     def get_level_str(self, obj):
-        return obj.get_level_display()
-        # if obj.rating_level < 1:
-        #     return "評価なし"
-        # elif obj.rating_level < 2:
-        #     return "初級"
-        # elif obj.rating_level < 3:
-        #     return "中級"
-        # elif obj.rating_level < 4:
-        #     return "上級"
-        # elif obj.rating_level < 5:
-        #     return "超上級"
+        level = obj.level
+        if level <= 2:
+            level_str = "初級"
+        elif level <= 3:
+            level_str = "中級"
+        elif level <= 4:
+            level_str = "上級"
+        elif level <= 5:
+            level_str = "超上級"
+        return level_str
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ReviewModel
+        fields = "__all__"
+        read_only_fields = ('id',)

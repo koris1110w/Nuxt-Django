@@ -5,6 +5,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django_filters.rest_framework import DjangoFilterBackend
+from django.db.models import Avg
 
 from . import models
 from . import serializer
@@ -41,5 +42,21 @@ class APIPlayingView(APIView):
         pk = kwargs.get('pk')
         object = get_object_or_404(models.RiddleModel, pk=pk)
         object.playings += 1
+        object.save()
+        return Response({'status': 'success'}, status=200)
+    
+class APICollectReviewView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, *args, **kwargs):
+        pk = kwargs.get('pk')
+        object = get_object_or_404(models.RiddleModel, pk=pk)
+        review = models.ReviewModel.objects.filter(riddle=object)
+        object.rating = review.aggregate(result=Avg("rating"))["result"]
+        object.level = review.aggregate(result=Avg("level"))["result"]
+        object.time = review.aggregate(result=Avg("time"))["result"]
+        object.sukkiri = review.aggregate(result=Avg("sukkiri"))["result"]
+        object.gimmick = review.aggregate(result=Avg("gimmick"))["result"]
+        object.story = review.aggregate(result=Avg("story"))["result"]
         object.save()
         return Response({'status': 'success'}, status=200)

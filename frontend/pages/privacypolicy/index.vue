@@ -68,7 +68,7 @@
       変更後の本ポリシーは，本ウェブサイトに掲載したときから効力を生じるものとします。</p>
   </el-card>
 </template>
-<script>
+<script setup>
   useSeoMeta({
     title: 'プライバシーポリシー | 謎解きデータベース',
     ogTitle: 'プライバシーポリシー | 謎解きデータベース',

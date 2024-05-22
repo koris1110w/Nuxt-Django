@@ -142,7 +142,7 @@
     </p>
   </el-card>
 </template>
-<script>
+<script setup>
   useSeoMeta({
     title: '利用規約 | 謎解きデータベース',
     ogTitle: '利用規約 | 謎解きデータベース',

@@ -54,11 +54,11 @@ const data:ChartData<'radar'> = {
       pointHoverBackgroundColor: '#ffa503',
       pointHoverBorderColor: '#ffa503',
       data: [
-        props.riddle.rating_sukkiri, 
-        props.riddle.rating_gimmick, 
-        Number(props.riddle.level),
-        Number(props.riddle.time),
-        props.riddle.rating_story, 
+        props.riddle.sukkiri, 
+        props.riddle.gimmick, 
+        props.riddle.level,
+        props.riddle.time,
+        props.riddle.story, 
       ]
     }
   ]

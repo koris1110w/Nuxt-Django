@@ -3,3 +3,4 @@ from . import models
 
 admin.site.register(models.RiddleModel)
 admin.site.register(models.CreatorModel)
+admin.site.register(models.ReviewModel)

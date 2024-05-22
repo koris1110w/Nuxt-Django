@@ -2,25 +2,25 @@ from django_filters import rest_framework as filters
 from django.db.models import Q
 from . import models
 
+TIME_SET = (
+    ("1", "〜30分"),
+    ("2", "30分〜90分"),
+    ("3", "90分~180分"),
+    ("4", "180分〜")
+)
+    
+LEVEL_SET = (
+    ("1", "初級"),
+    ("2", "中級"),
+    ("3", "上級"),
+    ("4", "超上級")
+)
+
 FILTER_SET = (
     ("created_at", "新着順"),
     ("rating", "評価順"),
     ("playings", "プレイ数順"),
     ("level", "難易度順"),
-)
-
-TIME_SET = (
-    (1, "〜30分"),
-    (2, "30〜90分"),
-    (3, "90分~180分"),
-    (4, "180分〜")
-)
-    
-LEVEL_SET = (
-    (1, "初級"),
-    (2, "中級"),
-    (3, "上級"),
-    (4, "超上級")
 )
 
 TAG_SET = (
@@ -31,8 +31,8 @@ TAG_SET = (
 
 class RiddleFilter(filters.FilterSet):
     type = filters.MultipleChoiceFilter(choices=models.TYPE_SET)
-    time = filters.MultipleChoiceFilter(choices=models.TIME_SET)
-    level = filters.MultipleChoiceFilter(choices=models.LEVEL_SET)
+    time = filters.MultipleChoiceFilter(choices=TIME_SET, method='timeFilter')
+    level = filters.MultipleChoiceFilter(choices=LEVEL_SET, method='levelFilter')
     creator = filters.NumberFilter()
     word = filters.CharFilter(method='wordFilter')
     order = filters.CharFilter(method='orderFilter')
@@ -51,30 +51,34 @@ class RiddleFilter(filters.FilterSet):
     
     def tagFilter(self,queryset,name,values):
         if "sukkiri" in values:
-            queryset = queryset.filter(rating_sukkiri__gte=4)
+            queryset = queryset.filter(sukkiri__gte=4)
         if "story" in values:
-            queryset = queryset.filter(rating_story__gte=4)
+            queryset = queryset.filter(story__gte=4)
         if "gimmick" in values:
-            queryset = queryset.filter(rating_gimmick__gte=4)
+            queryset = queryset.filter(gimmick__gte=4)
         return queryset
     
-    # def timeFilter(self,queryset,name,value):
-    #     print(value)
-    #     if value == "1":
-    #         return queryset.filter(rating_quantity__gte=1, rating_quantity__lt=2)
-    #     elif value == "2":
-    #         return queryset.filter(rating_quantity__gte=2, rating_quantity__lt=3)
-    #     elif value == "3":
-    #         return queryset.filter(rating_quantity__gte=3, rating_quantity__lt=4)
-    #     elif value == "4":
-    #         return queryset.filter(rating_quantity__gte=4, rating_quantity__lt=5)
-        
-    # def levelFilter(self,queryset,name,value):
-    #     if value == "1":
-    #         return queryset.filter(rating_level__gte=1, rating_level__lt=2)
-    #     elif value == "2":
-    #         return queryset.filter(rating_level__gte=2, rating_level__lt=3)
-    #     elif value == "3":
-    #         return queryset.filter(rating_level__gte=3, rating_level__lt=4)
-    #     elif value == "4":
-    #         return queryset.filter(rating_level__gte=4, rating_level__lt=5)
+    def timeFilter(self,queryset,name,values):
+        print(values)
+        result = models.RiddleModel.objects.none()
+        if "1" in values:
+            result = result.union(queryset.filter(time__gte=1, time__lte=2))
+        if "2" in values:
+            result = result.union(queryset.filter(time__gt=2, time__lte=3))
+        if "3" in values:
+            result = result.union(queryset.filter(time__gt=3, time__lte=4))
+        if "4" in values:
+            result = result.union(queryset.filter(time__gt=4, time__lte=5))
+        return result
+    
+    def levelFilter(self,queryset,name,values):
+        result = models.RiddleModel.objects.none()
+        if "1" in values:
+            result = result.union(queryset.filter(level__gte=1, level__lte=2))
+        if "2" in values:
+            result = result.union(queryset.filter(level__gt=2, level__lte=3))
+        if "3" in values:
+            result = result.union(queryset.filter(level__gt=3, level__lte=4))
+        if "4" in values:
+            result = result.union(queryset.filter(level__gt=4, level__lte=5))
+        return result

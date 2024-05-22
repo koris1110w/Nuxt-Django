@@ -132,24 +132,20 @@
   ]
   const timeSet = [
     {
-      title: "〜15分",
+      title: "〜30分",
       value: "1",
     },
     {
-      title: "15分〜45分",
+      title: "30分〜90分",
       value: "2",
     },
     {
-      title: "45分〜90分",
+      title: "90分〜180分",
       value: "3",
     },
     {
-      title: "90分〜180分",
-      value: "4",
-    },
-    {
       title: "180分〜",
-      value: "5",
+      value: "4",
     },
   ]
   const levelSet = [
@@ -158,20 +154,16 @@
       value: "1",
     },
     {
-      title: "初中級",
+      title: "中級",
       value: "2",
     },
     {
-      title: "中級",
+      title: "上級",
       value: "3",
     },
     {
-      title: "上級",
-      value: "4",
-    },
-    {
       title: "超上級",
-      value: "5",
+      value: "4",
     },
   ]
   const tagSet = [

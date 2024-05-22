@@ -5,7 +5,7 @@
         <el-image :src="riddle.image" class="w-44 h-56" fit="cover"/>
         <div class="flex flex-wrap-reverse absolute bottom-9 left-0">
           <el-tag
-            v-if="riddle.rating_story >= 4"
+            v-if="riddle.story >= 4"
             class="mt-1 ml-1"
             type="primary"
             effect="light"
@@ -15,7 +15,7 @@
             ストーリー◎
           </el-tag>
           <el-tag
-            v-if="riddle.rating_gimmick >= 4"
+            v-if="riddle.gimmick >= 4"
             class="mt-1 ml-1"
             type="primary"
             effect="light"
@@ -25,7 +25,7 @@
             ギミック◎
           </el-tag>
           <el-tag
-            v-if="riddle.rating_sukkiri >= 4"
+            v-if="riddle.sukkiri >= 4"
             class="mt-1 ml-1"
             type="primary"
             effect="light"
@@ -56,17 +56,6 @@
             size=""
             disabled-void-color="#8D9095"
           />
-          <!-- <star-rating
-            :increment="0.01"
-            :rating="riddle.rating"
-            :read-only="true"
-            v-bind:star-size="20"
-            :show-rating="false"
-            inactive-color="#9ca3af"
-            active-color="#ffa503"
-            :inline="true"
-            class="pb-1.5"
-          ></star-rating> -->
           <h3 class="ml-1 text-xl text-gray-300 font-semibold">
             {{ riddle.rating }}
           </h3>
