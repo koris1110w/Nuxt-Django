@@ -2,6 +2,9 @@ from django.urls import path
 
 from . import views
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
 app_name = "api"
 
 urlpatterns = [
@@ -11,4 +14,5 @@ urlpatterns = [
     path('ranking/', views.APIRankingView.as_view(), name='api_ranking'),
     path("playing/<int:pk>/", views.APIPlayingView.as_view(), name="api_playing"),
     path("collect_review/<int:pk>/", views.APICollectReviewView.as_view()),
+    path('sentry-debug/', trigger_error),
 ]
