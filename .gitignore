@@ -23,3 +23,4 @@ frontend/*.log
 !.env.example
 
 backend/.venv
+**/__pycache__/**
