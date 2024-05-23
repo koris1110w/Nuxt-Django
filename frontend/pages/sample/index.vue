@@ -7,6 +7,9 @@
     class="text-sm font-semibold mt-4 w-40"
     @click="aaa()"
   >button</el-button>
+  <ClientOnly>
+    <c-canvas></c-canvas>
+  </ClientOnly>
 </template>
 <script setup>
   const aaa = async () => {
