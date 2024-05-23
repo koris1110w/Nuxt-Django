@@ -15,6 +15,11 @@
   const runtimeConfig = useRuntimeConfig();
   console.log(runtimeConfig.public.test)
   console.log(runtimeConfig.public.apiUrl)
+  const { data: samples, error } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/`)
+  console.log("samples")
+  console.log(samples)
+  console.log("error")
+  console.log(error)
   const aaa = async () => {
     console.log("test")
     const runtimeConfig = useRuntimeConfig();
@@ -23,7 +28,5 @@
     const { data: riddles } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/`)
     console.log("riddles")
     console.log(riddles)
-    console.log("error")
-    console.log(error)
   }
 </script>
