@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Avg
+from rest_framework.permissions import IsAuthenticated
 
 from . import models
 from . import serializer
@@ -13,7 +14,7 @@ from . import pagination
 from . import filter
 
 class APIRiddleListView(generics.ListAPIView):
-    permission_classes = [AllowAny]
+    permission_classes = (IsAuthenticated,)
     queryset = models.RiddleModel.objects.all().order_by("created_at")
     serializer_class = serializer.RiddleSerializer
     pagination_class = pagination.StandardResultsSetPagination

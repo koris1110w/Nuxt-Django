@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import sentry_sdk
+import datetime
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -122,6 +123,18 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    # jwtトークン認証
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),  
+}
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT'),
+    # JWT有効期限
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=30),
+}
 
 
 # Internationalization
