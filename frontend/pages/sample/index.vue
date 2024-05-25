@@ -13,15 +13,13 @@
 </template>
 <script setup>
   const runtimeConfig = useRuntimeConfig();
-  console.log(runtimeConfig.public.test)
-  console.log(runtimeConfig.public.apiUrl)
-  const { data: samples, error } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/`)
+  console.log(runtimeConfig.public.apiUrlOnServer)
+  const { data: samples, error } = await useFetch(`${runtimeConfig.public.apiUrlOnServer}/api/v1/riddles/`)
   console.log("samples")
   console.log(samples)
   const aaa = async () => {
     console.log("test")
     const runtimeConfig = useRuntimeConfig();
-    console.log(runtimeConfig.public.test)
     console.log(runtimeConfig.public.apiUrl)
     const { data: riddles } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/`)
     console.log("riddles")

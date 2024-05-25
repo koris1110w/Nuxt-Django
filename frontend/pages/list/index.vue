@@ -228,7 +228,7 @@
   }
 
   const runtimeConfig = useRuntimeConfig();
-  const { data: response } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/`, { query })
+  const { data: response } = await useFetch(`${runtimeConfig.public.apiUrlOnServer}/api/v1/riddles/`, { query })
   useSeoMeta({
     title: '謎解き一覧 | 謎解きデータベース',
     ogTitle: '謎解き一覧 | 謎解きデータベース',
