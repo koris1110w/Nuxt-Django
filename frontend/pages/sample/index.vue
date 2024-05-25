@@ -41,6 +41,12 @@
   const { data: testj } = await useFetch("http://https-portal/api/v1/riddles/")
   console.log("testj")
   console.log(testj)
+  const { data: testk } = await useFetch("http://157.7.207.38/api/v1/riddles/")
+  console.log("testk")
+  console.log(testk)
+  const { data: testl } = await useFetch("https://157.7.207.38/api/v1/riddles/")
+  console.log("testl")
+  console.log(testl)
   const test = async () => {
     console.log("test")
     const runtimeConfig = useRuntimeConfig();
