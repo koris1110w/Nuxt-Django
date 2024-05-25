@@ -8,6 +8,7 @@ frontend/dist
 
 # Node dependencies
 frontend/node_modules
+frontend/package-lock.json
 
 # Logs
 frontend/logs
