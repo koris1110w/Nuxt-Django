@@ -7,8 +7,8 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-        apiUrl: process.env.NUXT_PUBLIC_API_URL,
-        test: "test"
+        apiUrl: process.env.API_URL,
+        apiUrlOnServer: process.env.API_URL_ON_SERVER,
     }
   },
   app:{
