@@ -53,8 +53,8 @@ services:
       DOMAINS: 'nazotokidb.com -> http://nginx:8080'
       STAGE: 'production' # Don't use production until staging works
       # FORCE_RENEW: 'true'
-    volumes: # ここを書いていなかった
-      - ./nginx_prod_https_conf/nazotokidb.com.ssl.conf.erb:/var/lib/nginx-conf/nazotokidb.com.ssl.conf.erb:ro
+    volumes:
+      # - ./nginx_prod_https_conf/nazotokidb.com.ssl.conf.erb:/var/lib/nginx-conf/nazotokidb.com.ssl.conf.erb:ro
       - static:/code/static_root
       - media:/code/media
       - https-portal-data:/var/lib/https-portal # ここを書いていなかった
