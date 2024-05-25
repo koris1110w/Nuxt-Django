@@ -54,7 +54,6 @@ services:
       STAGE: 'production' # Don't use production until staging works
       # FORCE_RENEW: 'true'
     volumes: # ここを書いていなかった
-      volumes:
       - ./nginx_prod_https_conf/nazotokidb.com.ssl.conf.erb:/var/lib/nginx-conf/nazotokidb.com.ssl.conf.erb:ro
       - static:/code/static_root
       - media:/code/media
