@@ -204,7 +204,6 @@
     order: selectOrder.value,
   })
   const filter = () => {
-    url.value = runtimeConfig.public.apiUrl
     page.value = 1
     query.value = {
       page: page.value,
@@ -217,7 +216,6 @@
     }
   }
   const paging = () => {
-    url.value = runtimeConfig.public.apiUrl
     query.value = {
       page: page.value,
       word: selectWord.value,
@@ -230,7 +228,7 @@
   }
 
   const runtimeConfig = useRuntimeConfig();
-  const url = ref(runtimeConfig.public.apiUrlOnServer)
+  const url = ref(runtimeConfig.public.apiUrl)
   const { data: response } = await useFetch(`${url.value}/api/v1/riddles/`, { query })
   useSeoMeta({
     title: '謎解き一覧 | 謎解きデータベース',

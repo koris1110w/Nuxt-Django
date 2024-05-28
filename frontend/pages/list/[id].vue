@@ -107,7 +107,7 @@
   const activeName = ref('1')
   const id = useRoute().params.id
   const runtimeConfig = useRuntimeConfig();
-  const { data: riddle, error } = await useFetch(`${runtimeConfig.public.apiUrlOnServer}/api/v1/riddles/${id}`)
+  const { data: riddle, error } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/${id}`)
   const playingRiddle = async (id) => {
     const postData = {}
     const { data } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/playing/${id}/`, {
