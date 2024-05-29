@@ -34,7 +34,7 @@ class CreatorModel(models.Model):
 class RiddleModel(models.Model):
     name = models.CharField(max_length=120)
     image = models.ImageField(upload_to='')
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     type = models.CharField(choices=TYPE_SET, max_length=10)
     rating = models.FloatField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
     level = models.FloatField(null=True, blank=True, validators=[MinValueValidator(1), MaxValueValidator(5)])
