@@ -2,7 +2,7 @@
   <div class="bg-gray-800 rounded-md border border-gray-700 h-56 overflow-hidden">
     <div class="flex flex-row w-44 h-56 relative">
       <a :href="`/list/${riddle.id}`">
-        <el-image :src="riddle.image" class="w-44 h-56 bg-white" fit="contain"/>
+        <el-image :src="riddle.image" class="w-44 h-56 bg-white" fit="cover"/>
         <div class="flex flex-wrap-reverse absolute bottom-9 left-0">
           <el-tag
             v-if="riddle.story >= 4"
