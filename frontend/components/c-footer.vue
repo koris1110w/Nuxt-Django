@@ -5,7 +5,7 @@
         <el-link href="/termsofservices/" type="info">利用規約</el-link>
         <el-link href="/privacypolicy/" type="info">プライバシーポリシー</el-link>
       </el-space>
-      <p>nazotokidb</p>
+      <p>Copyright © nazotokidb All Rights Reserved.</p>
     </div>
   </el-footer>
 </template>
