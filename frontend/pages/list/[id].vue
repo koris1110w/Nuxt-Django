@@ -89,7 +89,7 @@
   <div class="container mt-10 px-4 sm:px-0">
     <el-collapse v-model="activeName">
       <el-collapse-item title="説明" name="1">
-        <div class="text-xl">
+        <div class="text-lg">
           {{ riddle.description }}
         </div>
       </el-collapse-item>

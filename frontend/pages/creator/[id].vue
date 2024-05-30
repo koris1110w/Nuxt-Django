@@ -1,6 +1,6 @@
 <template>
   <div class="my-10 flex justify-center items-center">
-    <el-image :src="creator.image" fit="cover" class="w-40 h-40 size-[200px] rounded-full"/>
+    <el-image :src="creator.image" fit="cover" class="w-40 h-40 bg-white size-[200px] rounded-full" :preview-src-list="[creator.image]" :initial-index="0"/>
     <div class="ml-10">
       <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-gray-300 dark:group-hover:text-white">
         {{ creator.name }}
