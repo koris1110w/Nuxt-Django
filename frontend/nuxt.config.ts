@@ -5,10 +5,8 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss", 
     "@element-plus/nuxt", 
     'nuxt-gtag',
+    '@nuxtjs/sitemap',
   ],
-  gtag: {
-    id: 'G-PQJVM68CW4' // 測定ID
-  },
   runtimeConfig: {
     public: {
         apiUrl: process.env.NUXT_PUBLIC_API_URL,
@@ -34,5 +32,11 @@ export default defineNuxtConfig({
         },
       ],
     },
+  },
+  gtag: {
+    id: 'G-PQJVM68CW4' // 測定ID
+  },
+  sitemap: {
+    path: '/sitemap.xml'
   },
 })
