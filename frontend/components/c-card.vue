@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-gray-800 rounded-md border border-gray-700 h-56 overflow-hidden">
-    <div class="flex flex-row w-44 h-56 relative">
+  <div class="bg-gray-800 rounded-md border border-gray-700 h-48 lg:h-56 overflow-hidden">
+    <div class="flex flex-row w-40 h-48 lg:w-44 lg:h-56 relative">
       <a :href="`/list/${riddle.id}`">
-        <el-image :src="riddle.image" class="w-44 h-56 bg-white" fit="cover"/>
+        <el-image :src="riddle.image" class="w-40 lg:w-44 h-48 lg:h-56 bg-gray-700" fit="contain"/>
         <div class="flex flex-wrap-reverse absolute bottom-9 left-0">
           <el-tag
             v-if="riddle.story >= 4"
@@ -47,44 +47,44 @@
         </div>
       </a>
       <div class="mx-4 my-2 flex flex-col">
-        <a :href="`/list/${riddle.id}`" class="text-xl font-bold truncate w-40">{{ riddle.name }}</a>
-        <a :href="`/creator/${riddle.creator.id}`" class="text-md text-gray-400 hover:text-blue-400 truncate w-40">{{ riddle.creator.name }}</a>
+        <a :href="`/list/${riddle.id}`" class="text-base lg:text-lg font-bold truncate w-40">{{ riddle.name }}</a>
+        <a :href="`/creator/${riddle.creator.id}`" class="text-sm lg:text-base text-gray-400 hover:text-blue-400 truncate w-40">{{ riddle.creator.name }}</a>
         <div class="flex items-center">
           <el-rate
             v-model="riddle.rating"
             disabled
-            size=""
+            :size=rateSize
             disabled-void-color="#8D9095"
           />
-          <h3 class="ml-1 text-xl text-gray-300 font-semibold">
+          <h3 class="ml-1 text-base lg:text-xl text-gray-300 font-semibold">
             {{ riddle.rating }}
           </h3>
         </div>
         <div class="grid grid-cols-1">
           <div class="flex items-center">
-            <el-icon :size="20" color="">
+            <el-icon :size=iconSize color="">
               <Location />
             </el-icon>
-            <span class="mx-2 text-md text-gray-300">{{ riddle.type_str }}</span>
+            <span class="mx-2 text-sm lg:text-base text-gray-300">{{ riddle.type_str }}</span>
           </div>
           <div class="flex items-center mt-1">
-            <el-icon :size="20" color="">
+            <el-icon :size=iconSize color="">
               <Timer />
             </el-icon>
-            <span class="mx-2 text-md text-gray-300">{{ riddle.time_str }}</span>
+            <span class="mx-2 text-sm lg:text-base text-gray-300">{{ riddle.time_str }}</span>
           </div>
           <div class="flex items-center mt-1">
-            <el-icon :size="20" color="">
+            <el-icon :size=iconSize color="">
               <Key />
             </el-icon>
-            <span class="mx-2 text-md text-gray-300">{{ riddle.level_str }}</span>
+            <span class="mx-2 text-sm lg:text-base text-gray-300">{{ riddle.level_str }}</span>
           </div>
         </div>
         <el-button
           round
           type="primary"
           tag="a"
-          size="default"
+          :size=rateSize
           class="text-sm font-semibold mt-2 w-32"
           @click="playingRiddle(riddle.id)"
           :href="riddle.url"
@@ -96,6 +96,22 @@
   </div>
 </template>
 <script setup lang="ts">
+  import { useWindowSize } from '@vueuse/core';
+  const { width } = useWindowSize();
+  const rateSize = computed(() => {
+    if (width.value < 1024) {
+      return 'small'
+    } else {
+      return 'default'
+    }
+  })
+  const iconSize = computed(() => {
+    if (width.value < 1024) {
+      return 16
+    } else {
+      return 20
+    }
+  })
   import {
     VideoPlay,
     Key,

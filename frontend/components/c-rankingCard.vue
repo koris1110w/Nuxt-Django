@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-gray-800 rounded-md border border-gray-700 overflow-hidden w-48 h-76 pb-2">
+  <div class="bg-gray-800 rounded-md border border-gray-700 overflow-hidden w-44 pb-2">
     <div class="flex flex-col">
       <a :href="`/list/${riddle.id}`" class="relative">
-        <el-image :src="riddle.image" class="w-48 h-44 bg-white" fit="cover"/>
+        <el-image :src="riddle.image" class="w-44 h-44 bg-gray-700" fit="contain"/>
         <div class="absolute top-2 left-2 text-white w-8 h-8 font-bold flex items-center justify-center" :class="getRankingColor(index)">{{ index + 1 }}</div>
         <div class="flex flex-wrap-reverse absolute bottom-9 left-0">
           <el-tag
@@ -48,16 +48,16 @@
         </div>
       </a>
       <div class="mx-2 flex flex-col items-start">
-        <a :href="`/list/${riddle.id}`" class="text-lg font-bold truncate w-44 text-left">{{ riddle.name }}</a>
-        <a :href="`/creator/${riddle.creator.id}`" class="text-sm text-gray-300 hover:text-blue-400 truncate w-44 text-left">{{ riddle.creator.name }}</a>
+        <a :href="`/list/${riddle.id}`" class="text-base lg:text-lg font-bold truncate w-40 text-left">{{ riddle.name }}</a>
+        <a :href="`/creator/${riddle.creator.id}`" class="text-sm text-gray-300 hover:text-blue-400 truncate w-40 text-left">{{ riddle.creator.name }}</a>
         <div class="flex items-center">
           <el-rate
             v-model="riddle.rating"
             disabled
-            size="default"
+            :size=rateSize
             disabled-void-color="#8D9095"
           />
-          <h3 class="ml-1 text-xl text-gray-300 font-semibold">
+          <h3 class="ml-1 text-base lg:text-xl text-gray-300 font-semibold">
             {{ riddle.rating }}
           </h3>
         </div>
@@ -77,6 +77,22 @@
   </div>
 </template>
 <script setup lang="ts">
+  import { useWindowSize } from '@vueuse/core';
+  const { width } = useWindowSize();
+  const rateSize = computed(() => {
+    if (width.value < 1024) {
+      return 'small'
+    } else {
+      return 'default'
+    }
+  })
+  const iconSize = computed(() => {
+    if (width.value < 1024) {
+      return 16
+    } else {
+      return 20
+    }
+  })
   import {
     VideoPlay,
   } from '@element-plus/icons-vue'
@@ -101,7 +117,7 @@
     }else if(index == 2) {
       return "bg-yellow-700"
     }else{
-      return "bg-gray-700"
+      return "bg-gray-800"
     }
   }
 </script>

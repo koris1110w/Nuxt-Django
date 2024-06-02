@@ -26,6 +26,7 @@
     <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-y-4 gap-4">
       <c-card v-for="riddle in riddles.results" :key="riddle.id" :riddle="riddle"></c-card>
     </div>
+    <c-adcards></c-adcards>
   </div>
 </template>
 <script setup>
@@ -61,9 +62,9 @@
     ogImage: 'https://***.***/images/ogp.png',
     twitterCard: 'summary_large_image',
   });
-  onMounted(() => {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-  });
+  // onMounted(() => {
+  //   (window.adsbygoogle = window.adsbygoogle || []).push({});
+  // });
 </script>
 <style>
 .carousel__pagination-button::after {
