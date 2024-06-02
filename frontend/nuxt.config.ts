@@ -4,7 +4,11 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss", 
     "@element-plus/nuxt", 
+    'nuxt-gtag',
   ],
+  gtag: {
+    id: 'G-PQJVM68CW4' // 測定ID
+  },
   runtimeConfig: {
     public: {
         apiUrl: process.env.NUXT_PUBLIC_API_URL,
@@ -21,6 +25,14 @@ export default defineNuxtConfig({
       link: [
         { rel: "icon", type: "image/png", href: "/favicon.ico" }, // これを追記する
       ],
+      script: [
+        {
+          async: true,
+          src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7081501069094845",
+          crossorigin: "anonymous",
+          tagPosition: "bodyClose",
+        },
+      ],
     },
-  }
+  },
 })

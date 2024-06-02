@@ -61,6 +61,9 @@
     ogImage: 'https://***.***/images/ogp.png',
     twitterCard: 'summary_large_image',
   });
+  onMounted(() => {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  });
 </script>
 <style>
 .carousel__pagination-button::after {
