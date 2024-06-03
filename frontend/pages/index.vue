@@ -57,10 +57,10 @@
   useSeoMeta({
     title: '謎解きデータベース',
     ogTitle: '謎解きデータベース',
-    description: '無料で遊べるオンライン謎解きを探すなら、「謎解きデータベース」で検索。',
-    ogDescription: '無料で遊べるオンライン謎解きを探すなら、「謎解きデータベース」で検索。',
-    ogImage: 'https://***.***/images/ogp.png',
-    twitterCard: 'summary_large_image',
+    description: '無料で遊べるオンライン謎解きを探すなら、「謎解きデータベース」で検索。ランキングやおすすめ、様々な項目での検索から自分好みの謎解きを見つけよう！',
+    ogDescription: '無料で遊べるオンライン謎解きを探すなら、「謎解きデータベース」で検索。ランキングやおすすめ、様々な項目での検索から自分好みの謎解きを見つけよう！',
+    // ogImage: 'https://nazotokidb.com/favicon.ico',
+    // twitterCard: 'summary_large_image',
   });
   // onMounted(() => {
   //   (window.adsbygoogle = window.adsbygoogle || []).push({});
