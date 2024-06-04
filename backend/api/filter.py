@@ -47,7 +47,7 @@ class RiddleFilter(filters.FilterSet):
         return queryset.filter(Q(name__icontains=value)|Q(description__icontains=value))
     
     def orderFilter(self,queryset,name,value):
-        return queryset.order_by(value).reverse()
+        return queryset.order_by(value)
     
     def tagFilter(self,queryset,name,values):
         if "sukkiri" in values:
