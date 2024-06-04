@@ -118,5 +118,7 @@
   useSeoMeta({
     title: () => `${riddle.value.name} | 謎解きデータベース`,
     ogTitle: () => `${riddle.value.name} | 謎解きデータベース`,
+    description: () => riddle.value.description,
+    ogDescription: () => riddle.value.description,
   });
 </script>

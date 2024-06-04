@@ -15,7 +15,7 @@ from . import filter
 
 class APIRiddleListView(generics.ListAPIView):
     permission_classes = [AllowAny]
-    queryset = models.RiddleModel.objects.all().order_by("created_at")
+    queryset = models.RiddleModel.objects.all().order_by("created_at").reverse()
     serializer_class = serializer.RiddleSerializer
     pagination_class = pagination.StandardResultsSetPagination
     filter_backends = [DjangoFilterBackend]
