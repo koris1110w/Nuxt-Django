@@ -17,7 +17,7 @@
         <span class="text-xl">個人情報の取り扱い</span>
       </div>
     </template>
-    <p class="text item">本サービスにおいて，利用者の個人情報は<a href="/pravacypolicy/" class="text-blue-400 hover:text-blue-500">プライバシーポリシー</a>に従って取り扱われます。</p>
+    <p class="text item">本サービスにおいて，利用者の個人情報は<a href="/privacypolicy/" class="text-blue-400 hover:text-blue-500">プライバシーポリシー</a>に従って取り扱われます。</p>
   </el-card>
   <el-card class="m-4">
     <template #header>
