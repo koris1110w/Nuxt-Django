@@ -3,7 +3,7 @@
     <div>
       <p class="text-md text-gray-400">謎解きデータベースは、オンラインで無料で遊べる謎解きを検索できるまとめサイトです。</p>
     </div>
-    <h1 class="text-xl font-bold text-white my-4">最新ランキング</h1>
+    <h1 class="text-xl font-bold text-white my-4">おすすめTOP10</h1>
     <Carousel
       v-bind="settings"
       :breakpoints="breakpoints"
