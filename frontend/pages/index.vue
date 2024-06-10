@@ -26,8 +26,8 @@
     <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-y-4 gap-4">
       <c-card v-for="riddle in riddles.results" :key="riddle.id" :riddle="riddle"></c-card>
     </div>
-    <c-adcards></c-adcards>
   </div>
+  <!-- <c-adcards></c-adcards> -->
 </template>
 <script setup>
   const runtimeConfig = useRuntimeConfig();

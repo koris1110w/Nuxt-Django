@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center h-full mx-auto container">
       <div class="flex items-center">
         <a href="/" class="text-xl font-600 mr-3 flex  items-center"> 
-          <img src="~/assets/img/favicon.png" class="w-9 h-9"/>
+          <img src="~/assets/img/favicon.png" class="w-9 h-9" alt="謎解きデータベースアイコン" />
           <p class="ml-1">謎解きデータベース</p>
         </a>
         <el-link href="/list/" :underline="false">謎解き一覧</el-link>

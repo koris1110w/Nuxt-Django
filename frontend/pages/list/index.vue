@@ -8,7 +8,7 @@
           v-model="selectWord"
           placeholder="キーワード検索"
           clearable
-          class="h-10"
+          :size="size"
           :prefix-icon="Search"
         ></el-input>
       </div>
@@ -18,7 +18,7 @@
           multiple
           v-model="selectType.value"
           placeholder="タイプ"
-          size="large"
+          :size="size"
         >
           <el-option
             v-for="item in typeSet"
@@ -34,7 +34,7 @@
           multiple
           v-model="selectTime.value"
           placeholder="時間"
-          size="large"
+          :size="size"
         >
           <el-option
             v-for="item in timeSet"
@@ -50,7 +50,7 @@
           multiple
           v-model="selectLevel.value"
           placeholder="難易度"
-          size="large"
+          :size="size"
         >
           <el-option
             v-for="item in levelSet"
@@ -66,7 +66,7 @@
           multiple
           v-model="selectTag.value"
           placeholder="タグ"
-          size="large"
+          :size="size"
         >
           <el-option
             v-for="item in tagSet"
@@ -81,7 +81,7 @@
         <el-select
           v-model="selectOrder"
           placeholder="並べ替え"
-          size="large"
+          :size="size"
         >
           <el-option
             v-for="item in orderSet"
@@ -93,7 +93,7 @@
       </div>
       <!-- フィルター -->
       <div class="col-span-2 lg:col-span-1">
-        <el-button type="primary" @click="filter" class="w-full" size="large" :icon="Filter">フィルター</el-button>
+        <el-button type="primary" @click="filter" class="w-full" :size="size" :icon="Filter">フィルター</el-button>
       </div>
     </div>
     <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-y-4 gap-4">
@@ -102,10 +102,20 @@
     <div class="mt-4 flex justify-center items-center">
       <el-pagination background layout="prev, pager, next" v-model:current-page="page" :page-count="Math.ceil(response.count / 6)" @current-change="paging"></el-pagination>
     </div>
-    <c-adcards class="mt-4"></c-adcards>
+    <!-- <c-adcards class="mt-4"></c-adcards> -->
   </div>
 </template>
 <script setup>
+  import { useWindowSize } from '@vueuse/core';
+  const { width } = useWindowSize();
+  const size = computed(() => {
+    // if (width.value < 1024) {
+    //   return 'default'
+    // } else {
+    //   return 'large'
+    // }
+    return 'large'
+  })
   import {
     Filter,
     Search,

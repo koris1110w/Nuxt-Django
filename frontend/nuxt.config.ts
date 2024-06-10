@@ -2,15 +2,15 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    "@nuxtjs/tailwindcss", 
-    "@element-plus/nuxt", 
+    "@nuxtjs/tailwindcss",
+    "@element-plus/nuxt",
     'nuxt-gtag',
     '@nuxtjs/sitemap',
+    "@nuxt/image"
   ],
   runtimeConfig: {
     public: {
         apiUrl: process.env.NUXT_PUBLIC_API_URL,
-        apiUrlOnServer: process.env.NUXT_PUBLIC_API_URL_ON_SERVER,
     }
   },
   app:{

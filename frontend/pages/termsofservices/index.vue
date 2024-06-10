@@ -147,8 +147,4 @@
     title: '利用規約 | 謎解きデータベース',
     ogTitle: '利用規約 | 謎解きデータベース',
   });
-  const test = async () => {
-    const { data } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/1`)
-    console.log(data.name)
-  }
 </script>
