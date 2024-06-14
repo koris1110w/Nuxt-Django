@@ -2,7 +2,9 @@
   <div class="bg-gray-800 rounded-md border border-gray-700 overflow-hidden w-44 pb-2">
     <div class="flex flex-col">
       <a :href="`/list/${riddle.id}`" class="relative">
-        <el-image :src="riddle.image" class="w-44 h-44 bg-gray-700" fit="contain" :alt="riddle.name"/>
+        <div class="w-44 h-44 bg-gray-700 flex items-center">
+          <NuxtImg :src="riddle.image" sizes="176px" fit="contain" :alt="riddle.name"/>
+        </div>
         <div class="absolute top-2 left-2 text-white w-8 h-8 font-bold flex items-center justify-center" :class="getRankingColor(index)">{{ index + 1 }}</div>
         <div class="flex flex-wrap-reverse absolute bottom-9 left-0">
           <el-tag

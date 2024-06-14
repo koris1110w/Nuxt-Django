@@ -2,7 +2,9 @@
   <div class="grid lg:grid-cols-3 gap-4">
     <div class="flex justify-center">
       <span class="relative"> 
-        <el-image :src="riddle.image" class="h-96 bg-gray-700" fit="contain" :preview-src-list="[riddle.image]" :initial-index="0"/>
+        <div class="flex items-center h-96 bg-gray-700">
+          <NuxtImg :src="riddle.image" sizes="384px" fit="contain"/>
+        </div>
         <div className="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
           <span className="flex items-center text-white absolute left-3 bottom-2">
             <el-icon :size="16" color="">
