@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     "@element-plus/nuxt",
     'nuxt-gtag',
     '@nuxtjs/sitemap',
-    "@nuxt/image"
+    "@nuxt/image",
+    "@nuxt/content"
   ],
   runtimeConfig: {
     public: {

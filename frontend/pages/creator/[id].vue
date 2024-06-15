@@ -3,6 +3,7 @@
     <div class="w-40 h-40 bg-white size-[200px] rounded-full flex items-center overflow-hidden">
       <NuxtImg :src="creator.image" sizes="160px" fit="contain"/>
     </div>
+    <!-- <el-image :src="creator.image" fit="contain" class="w-40 h-40 bg-white size-[200px] rounded-full"/> -->
     <div class="ml-10">
       <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-gray-300 dark:group-hover:text-white">
         {{ creator.name }}

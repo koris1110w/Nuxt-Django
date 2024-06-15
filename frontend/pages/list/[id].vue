@@ -5,6 +5,7 @@
         <div class="flex items-center h-96 bg-gray-700">
           <NuxtImg :src="riddle.image" sizes="384px" fit="contain"/>
         </div>
+        <!-- <el-image :src="riddle.image" fit="contain" class="flex items-center h-96 bg-gray-700"/> -->
         <div className="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
           <span className="flex items-center text-white absolute left-3 bottom-2">
             <el-icon :size="16" color="">

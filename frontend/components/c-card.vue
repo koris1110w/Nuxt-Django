@@ -5,6 +5,7 @@
         <div class="w-40 lg:w-44 h-48 lg:h-56 bg-gray-700 flex items-center">
           <NuxtImg :src="riddle.image" sizes="160px lg:176px" fit="contain" :alt="riddle.name"/>
         </div>
+        <!-- <el-image :src="riddle.image" fit="contain" :alt="riddle.name" class="w-40 lg:w-44 h-48 lg:h-56 bg-gray-700"/> -->
         <div class="flex flex-wrap-reverse absolute bottom-9 left-0">
           <el-tag
             v-if="riddle.story >= 4"
