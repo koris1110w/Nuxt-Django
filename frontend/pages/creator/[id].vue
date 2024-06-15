@@ -1,11 +1,11 @@
 <template>
   <div class="my-10 flex justify-center items-center">
     <div class="w-40 h-40 bg-white size-[200px] rounded-full flex items-center overflow-hidden">
-      <NuxtImg format="webp" :src="creator.image" width="160" height="160" sizes="160px" fit="contain" :alt="creator.name"/>
+      <NuxtImg format="webp" :src="creator.image" width="160" sizes="160px" fit="contain" :alt="creator.name"/>
     </div>
     <!-- <el-image :src="creator.image" fit="contain" class="w-40 h-40 bg-white size-[200px] rounded-full"/> -->
     <div class="ml-10">
-      <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600 dark:text-gray-300 dark:group-hover:text-white">
+      <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-300">
         {{ creator.name }}
       </h3>
       <el-button

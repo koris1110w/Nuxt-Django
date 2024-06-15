@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-xl font-bold text-white my-4">利用規約</h1>
+  <h1 class="text-xl font-bold my-4">利用規約</h1>
   <el-card class="m-4" shadow="never">
     <template #header>
       <div class="card-header">
@@ -11,17 +11,17 @@
       利用者は予め本規約に同意した上で，本サービスを利用するものとします。
     </p>
   </el-card>
-  <el-card class="m-4">
+  <el-card class="m-4"  shadow="never">
     <template #header>
-      <div class="card-header" shadow="never">
+      <div class="card-header">
         <span class="text-xl">個人情報の取り扱い</span>
       </div>
     </template>
     <p class="text item">本サービスにおいて，利用者の個人情報は<a href="/privacypolicy/" class="text-blue-400 hover:text-blue-500">プライバシーポリシー</a>に従って取り扱われます。</p>
   </el-card>
-  <el-card class="m-4">
+  <el-card class="m-4" shadow="never">
     <template #header>
-      <div class="card-header" shadow="never">
+      <div class="card-header">
         <span class="text-xl">利用環境</span>
       </div>
     </template>
@@ -30,9 +30,9 @@
       利用者は，自らの責任と費用で必要な機器やソフトウェアなどを適切に準備・操作するものとし，管理人はそれらに関与しません。
     </p>
   </el-card>
-  <el-card class="m-4">
+  <el-card class="m-4" shadow="never">
     <template #header>
-      <div class="card-header" shadow="never">
+      <div class="card-header">
         <span class="text-xl">本サービスの停止</span>
       </div>
     </template>
@@ -50,9 +50,9 @@
       なお，本サービスを停止したことにより，利用者または第三者が損害を受けたとしても，管理人は一切の補償をしません。
     </p>
   </el-card>
-  <el-card class="m-4">
+  <el-card class="m-4" shadow="never">
     <template #header>
-      <div class="card-header" shadow="never">
+      <div class="card-header">
         <span class="text-xl">本サービスの変更・終了</span>
       </div>
     </template>
@@ -62,9 +62,9 @@
       なお，本サービスの内容の一部または全部を変更・終了したことにより，利用者または第三者が損害を受けたとしても，管理人は一切の補償をしません。
     </p>
   </el-card>
-  <el-card class="m-4">
+  <el-card class="m-4" shadow="never">
     <template #header>
-      <div class="card-header" shadow="never">
+      <div class="card-header">
         <span class="text-xl">プライバシーポリシーの変更</span>
       </div>
     </template>
@@ -94,9 +94,9 @@
       <li>（８）システムの故障などにより，本サービスのデータが破損した場合であっても，管理人はその責任を負いません。</li>
     </ul>
   </el-card>
-  <el-card class="m-4">
+  <el-card class="m-4" shadow="never">
     <template #header>
-      <div class="card-header" shadow="never">
+      <div class="card-header">
         <span class="text-xl">財産権</span>
       </div>
     </template>
@@ -105,9 +105,9 @@
       本サービスおよび本サービスに関連して使用されている全てのソフトウェアは，知的財産権に関する法令などにより保護されている権利を含んでいます。
     </p>
   </el-card>
-  <el-card class="m-4">
+  <el-card class="m-4" shadow="never">
     <template #header>
-      <div class="card-header" shadow="never">
+      <div class="card-header">
         <span class="text-xl">禁止行為</span>
       </div>
     </template>
@@ -129,9 +129,9 @@
       加えて，利用停止措置に起因して利用者に生じた損害については，管理人は一切の責任を負わないものとします｡
     </p>
   </el-card>
-  <el-card class="m-4">
+  <el-card class="m-4" shadow="never">
     <template #header>
-      <div class="card-header" shadow="never">
+      <div class="card-header">
         <span class="text-xl">利用規約の変更</span>
       </div>
     </template>

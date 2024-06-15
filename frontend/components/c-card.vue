@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-gray-800 rounded-md border border-gray-700 h-48 lg:h-56 overflow-hidden">
+  <div class="bg-white dark:bg-gray-800 rounded-md border border-gray-300 dark:border-gray-700 h-48 lg:h-56 overflow-hidden">
     <div class="flex flex-row w-40 h-48 lg:w-44 lg:h-56 relative">
       <a :href="`/list/${riddle.id}`">
-        <div class="w-40 lg:w-44 h-48 lg:h-56 bg-gray-700 flex items-center">
+        <div class="w-40 lg:w-44 h-48 lg:h-56 bg-gray-100 dark:bg-gray-700 flex items-center">
           <NuxtImg format="webp" :src="riddle.image" width="176" sizes="160px lg:176px" fit="contain" :alt="riddle.name"/>
         </div>
         <!-- <el-image :src="riddle.image" fit="contain" :alt="riddle.name" class="w-40 lg:w-44 h-48 lg:h-56 bg-gray-700"/> -->
@@ -38,8 +38,8 @@
             スッキリ◎
           </el-tag>
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-8 bg-black bg-opacity-70">
-          <span className="flex items-center text-white absolute left-2 bottom-1">
+        <div class="absolute bottom-0 w-40 lg:w-44 h-8 bg-black bg-opacity-70 flex items-center">
+          <span class="flex items-center text-white ml-2 bottom-1">
             <el-icon :size="16" color="">
               <VideoPlay />
             </el-icon>
@@ -51,7 +51,7 @@
       </a>
       <div class="mx-4 my-2 flex flex-col">
         <a :href="`/list/${riddle.id}`" class="text-base lg:text-lg font-bold truncate w-40">{{ riddle.name }}</a>
-        <a :href="`/creator/${riddle.creator.id}`" class="text-sm lg:text-base text-gray-400 hover:text-blue-400 truncate w-40">{{ riddle.creator.name }}</a>
+        <a :href="`/creator/${riddle.creator.id}`" class="text-sm lg:text-base text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 truncate w-40">{{ riddle.creator.name }}</a>
         <div class="flex items-center">
           <el-rate
             v-model="riddle.rating"
@@ -59,7 +59,7 @@
             :size=rateSize
             disabled-void-color="#8D9095"
           />
-          <h4 class="ml-1 text-base lg:text-xl text-gray-300 font-semibold">
+          <h4 class="ml-1 text-base lg:text-xl text-gray-700 dark:text-gray-300 font-semibold">
             {{ riddle.rating }}
           </h4>
         </div>
@@ -68,19 +68,19 @@
             <el-icon :size=iconSize color="">
               <Location />
             </el-icon>
-            <span class="mx-2 text-sm lg:text-base text-gray-300">{{ riddle.type_str }}</span>
+            <span class="mx-2 text-sm lg:text-base text-gray-700 dark:text-gray-300">{{ riddle.type_str }}</span>
           </div>
           <div class="flex items-center mt-1">
             <el-icon :size=iconSize color="">
               <Timer />
             </el-icon>
-            <span class="mx-2 text-sm lg:text-base text-gray-300">{{ riddle.time_str }}</span>
+            <span class="mx-2 text-sm lg:text-base text-gray-700 dark:text-gray-300">{{ riddle.time_str }}</span>
           </div>
           <div class="flex items-center mt-1">
             <el-icon :size=iconSize color="">
               <Key />
             </el-icon>
-            <span class="mx-2 text-sm lg:text-base text-gray-300">{{ riddle.level_str }}</span>
+            <span class="mx-2 text-sm lg:text-base text-gray-700 dark:text-gray-300">{{ riddle.level_str }}</span>
           </div>
         </div>
         <el-button

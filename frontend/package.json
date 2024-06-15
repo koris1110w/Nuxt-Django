@@ -28,6 +28,7 @@
     "vue3-carousel": "^0.3.3"
   },
   "devDependencies": {
+    "@nuxtjs/color-mode": "^3.4.1",
     "@types/chart.js": "^2.9.41",
     "@types/fabric": "^5.3.7"
   }

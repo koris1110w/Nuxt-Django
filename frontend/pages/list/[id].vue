@@ -2,12 +2,12 @@
   <div class="grid lg:grid-cols-3 gap-4">
     <div class="flex justify-center">
       <span class="relative"> 
-        <div class="flex items-center h-96 bg-gray-700">
+        <div class="flex items-center h-96 bg-gray-100 dark:bg-gray-700">
           <NuxtImg :src="riddle.image" width="384" sizes="384px" fit="contain" :alt="riddle.name"/>
         </div>
         <!-- <el-image :src="riddle.image" fit="contain" class="flex items-center h-96 bg-gray-700"/> -->
-        <div className="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
-          <span className="flex items-center text-white absolute left-3 bottom-2">
+        <div class="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
+          <span class="flex items-center text-white absolute left-3 bottom-2">
             <el-icon :size="16" color="">
               <VideoPlay />
             </el-icon>
@@ -18,16 +18,16 @@
         </div>
       </span>
     </div>
-    <div class="ml-4 flex flex-col">
+    <div class="ml-4 flex flex-col items-start">
       <a class="text-xl font-bold break-words">{{ riddle.name }}</a>
-      <a :href="`/creator/${riddle.creator.id}`" class="text-lg text-gray-400 hover:text-blue-400 break-words">{{ riddle.creator.name }}</a>
+      <a :href="`/creator/${riddle.creator.id}`" class="text-lg text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 break-words">{{ riddle.creator.name }}</a>
       <div class="flex items-center mt-1">
         <el-rate
           v-model="riddle.rating"
           disabled
           size="large"
         />
-        <h3 class="ml-3 text-xl text-gray-300 font-semibold">
+        <h3 class="ml-3 text-xl text-gray-700 dark:text-gray-300 font-semibold">
           {{ riddle.rating }}
         </h3>
       </div>

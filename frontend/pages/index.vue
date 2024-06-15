@@ -3,7 +3,7 @@
     <div>
       <p class="text-md text-gray-400">謎解きデータベースは、オンラインで無料で遊べる謎解きを検索できるまとめサイトです。</p>
     </div>
-    <h1 class="text-xl font-bold text-white my-4">おすすめTOP10</h1>
+    <h1 class="text-xl font-bold my-4">おすすめTOP10</h1>
     <Carousel
       v-bind="settings"
       :breakpoints="breakpoints"
@@ -20,7 +20,7 @@
       </template>
     </carousel>
     <div class="flex justify-between">
-      <h1 class="text-xl font-bold text-white my-4">新着一覧</h1>
+      <h1 class="text-xl font-bold my-4">新着一覧</h1>
       <el-link href="/list/" :underline="false">もっと見る</el-link>
     </div>
     <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-y-4 gap-4">

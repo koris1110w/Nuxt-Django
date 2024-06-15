@@ -1,9 +1,7 @@
 <template>
-  <html class="dark">
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </html>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 <script lang="ts" setup>
   import 'element-plus/theme-chalk/dark/css-vars.css'

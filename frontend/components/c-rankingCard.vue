@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-gray-800 rounded-md border border-gray-700 overflow-hidden w-44 pb-2">
+  <div class="bg-white dark:bg-gray-800 rounded-md border border-gray-300 dark:border-gray-700 overflow-hidden w-44 pb-2">
     <div class="flex flex-col">
       <a :href="`/list/${riddle.id}`" class="relative">
-        <div class="w-44 h-44 bg-gray-700 flex items-center">
+        <div class="w-44 h-44 bg-gray-100 dark:bg-gray-700 flex items-center">
           <NuxtImg format="webp" :src="riddle.image" width="176" sizes="176px" fit="contain" :alt="riddle.name"/>
         </div>
         <!-- <el-image :src="riddle.image" sizes="176px" fit="contain" :alt="riddle.name" class="w-44 h-44 bg-gray-700"/> -->
@@ -39,8 +39,8 @@
             スッキリ◎
           </el-tag>
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-8 bg-black bg-opacity-70">
-          <span className="flex items-center text-white absolute left-2 bottom-1">
+        <div class="absolute inset-x-0 bottom-0 h-8 bg-black bg-opacity-70">
+          <span class="flex items-center text-white absolute left-2 bottom-1">
             <el-icon :size="16" color="">
               <VideoPlay />
             </el-icon>
@@ -52,7 +52,7 @@
       </a>
       <div class="mx-2 flex flex-col items-start">
         <a :href="`/list/${riddle.id}`" class="text-base lg:text-lg font-bold truncate w-40 text-left">{{ riddle.name }}</a>
-        <a :href="`/creator/${riddle.creator.id}`" class="text-sm text-gray-300 hover:text-blue-400 truncate w-40 text-left">{{ riddle.creator.name }}</a>
+        <a :href="`/creator/${riddle.creator.id}`" class="text-sm text-gray-700 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 truncate w-40 text-left">{{ riddle.creator.name }}</a>
         <div class="flex items-center">
           <el-rate
             v-model="riddle.rating"
@@ -60,7 +60,7 @@
             :size=rateSize
             disabled-void-color="#8D9095"
           />
-          <h4 class="ml-1 text-base lg:text-xl text-gray-300 font-semibold">
+          <h4 class="ml-1 text-base lg:text-xl text-gray-700 dark:text-gray-300 font-semibold">
             {{ riddle.rating }}
           </h4>
         </div>

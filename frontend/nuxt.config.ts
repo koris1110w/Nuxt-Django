@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     'nuxt-gtag',
     '@nuxtjs/sitemap',
     "@nuxt/image",
-    "@nuxt/content"
+    "@nuxt/content",
+    '@nuxtjs/color-mode',
   ],
   runtimeConfig: {
     public: {
@@ -46,4 +47,8 @@ export default defineNuxtConfig({
   sitemap: {
     path: '/sitemap.xml'
   },
+  colorMode: {
+    preference: 'dark',
+    classSuffix: '',
+  }
 })

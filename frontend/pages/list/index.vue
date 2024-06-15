@@ -1,6 +1,6 @@
 <template>
   <div class="mx-4">
-    <h1 class="text-xl font-bold text-white my-4">謎解き一覧</h1>
+    <h1 class="text-xl font-bold my-4">謎解き一覧</h1>
     <div class="grid grid-cols-2 lg:grid-cols-7 gap-4 mb-4 items-center">
       <!-- キーワード検索 -->
       <div class="col-span-1">
