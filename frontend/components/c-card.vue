@@ -3,7 +3,7 @@
     <div class="flex flex-row w-40 h-48 lg:w-44 lg:h-56 relative">
       <a :href="`/list/${riddle.id}`">
         <div class="w-40 lg:w-44 h-48 lg:h-56 bg-gray-700 flex items-center">
-          <NuxtImg format="webp" :src="riddle.image" width="176" height="224" sizes="160px lg:176px" fit="contain" :alt="riddle.name"/>
+          <NuxtImg format="webp" :src="riddle.image" width="176" sizes="160px lg:176px" fit="contain" :alt="riddle.name"/>
         </div>
         <!-- <el-image :src="riddle.image" fit="contain" :alt="riddle.name" class="w-40 lg:w-44 h-48 lg:h-56 bg-gray-700"/> -->
         <div class="flex flex-wrap-reverse absolute bottom-9 left-0">

@@ -41,7 +41,7 @@ export default defineNuxtConfig({
     id: 'G-PQJVM68CW4' // 測定ID
   },
   image: {
-    domains: ["nazotokidb.com"],
+    domains: ["nazotokidb.com", "localhost", "localhost:3000"],
   },
   sitemap: {
     path: '/sitemap.xml'

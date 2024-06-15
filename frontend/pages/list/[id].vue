@@ -3,7 +3,7 @@
     <div class="flex justify-center">
       <span class="relative"> 
         <div class="flex items-center h-96 bg-gray-700">
-          <NuxtImg :src="riddle.image" width="384" height="384" sizes="384px" fit="contain" :alt="riddle.name"/>
+          <NuxtImg :src="riddle.image" width="384" sizes="384px" fit="contain" :alt="riddle.name"/>
         </div>
         <!-- <el-image :src="riddle.image" fit="contain" class="flex items-center h-96 bg-gray-700"/> -->
         <div className="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
