@@ -1,7 +1,7 @@
 <template>
   <div class="my-10 flex justify-center items-center">
     <div class="w-40 h-40 bg-white size-[200px] rounded-full flex items-center overflow-hidden">
-      <NuxtImg :src="creator.image" sizes="160px" fit="contain"/>
+      <NuxtImg format="webp" :src="creator.image" width="160" height="160" sizes="160px" fit="contain" :alt="creator.name"/>
     </div>
     <!-- <el-image :src="creator.image" fit="contain" class="w-40 h-40 bg-white size-[200px] rounded-full"/> -->
     <div class="ml-10">

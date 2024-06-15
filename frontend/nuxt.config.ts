@@ -17,6 +17,9 @@ export default defineNuxtConfig({
   app:{
     head: {
       title: "謎解きデータベース",
+      htmlAttrs: {  
+        lang: 'ja-JP',
+      },
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -36,6 +39,9 @@ export default defineNuxtConfig({
   },
   gtag: {
     id: 'G-PQJVM68CW4' // 測定ID
+  },
+  image: {
+    domains: ["nazotokidb.com"],
   },
   sitemap: {
     path: '/sitemap.xml'

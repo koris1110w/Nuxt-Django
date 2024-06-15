@@ -3,7 +3,7 @@
     <div class="flex flex-col">
       <a :href="`/list/${riddle.id}`" class="relative">
         <div class="w-44 h-44 bg-gray-700 flex items-center">
-          <NuxtImg :src="riddle.image" sizes="176px" fit="contain" :alt="riddle.name"/>
+          <NuxtImg format="webp" :src="riddle.image" width="176" height="176" sizes="176px" fit="contain" :alt="riddle.name"/>
         </div>
         <!-- <el-image :src="riddle.image" sizes="176px" fit="contain" :alt="riddle.name" class="w-44 h-44 bg-gray-700"/> -->
         <div class="absolute top-2 left-2 text-white w-8 h-8 font-bold flex items-center justify-center" :class="getRankingColor(index)">{{ index + 1 }}</div>
@@ -60,9 +60,9 @@
             :size=rateSize
             disabled-void-color="#8D9095"
           />
-          <h3 class="ml-1 text-base lg:text-xl text-gray-300 font-semibold">
+          <h4 class="ml-1 text-base lg:text-xl text-gray-300 font-semibold">
             {{ riddle.rating }}
-          </h3>
+          </h4>
         </div>
         <el-button
           round
