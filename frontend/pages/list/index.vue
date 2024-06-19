@@ -102,7 +102,7 @@
     <div class="mt-4 flex justify-center items-center">
       <el-pagination background layout="prev, pager, next" v-model:current-page="page" :page-count="Math.ceil(response.count / 6)" @current-change="paging"></el-pagination>
     </div>
-    <!-- <c-adcards class="mt-4"></c-adcards> -->
+    <c-adcards class="mt-4"></c-adcards>
   </div>
 </template>
 <script setup>

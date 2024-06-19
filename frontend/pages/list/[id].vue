@@ -100,6 +100,7 @@
   </div>
 </template>
 <script setup lang="ts">
+  // import type { Riddle } from "~~/types/type"
   import {
     VideoPlay,
     Key,
@@ -111,7 +112,7 @@
   const id = useRoute().params.id
   const runtimeConfig = useRuntimeConfig();
   const { data: riddle, error } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/riddles/${id}`)
-  const playingRiddle = async (id) => {
+  const playingRiddle = async (id: number) => {
     const postData = {}
     const { data } = await useFetch(`${runtimeConfig.public.apiUrl}/api/v1/playing/${id}/`, {
       method: 'POST',

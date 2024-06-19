@@ -27,7 +27,7 @@
       <c-card v-for="riddle in riddles.results" :key="riddle.id" :riddle="riddle"></c-card>
     </div>
   </div>
-  <!-- <c-adcards></c-adcards> -->
+  <c-adcards></c-adcards>
 </template>
 <script setup>
   const runtimeConfig = useRuntimeConfig();
@@ -62,9 +62,6 @@
     // ogImage: 'https://nazotokidb.com/favicon.ico',
     // twitterCard: 'summary_large_image',
   });
-  // onMounted(() => {
-  //   (window.adsbygoogle = window.adsbygoogle || []).push({});
-  // });
 </script>
 <style>
 .carousel__pagination-button::after {

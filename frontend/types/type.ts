@@ -1,5 +1,15 @@
 // 検証中
 export type Riddle = {
+  id: number
+  creator: {
+    id: number
+    name: string
+    image: string
+    url: string
+  }
+  type_str: string
+  level_str: string
+  time_str: string
   name: string
   image: string
   description: string
@@ -13,9 +23,9 @@ export type Riddle = {
   start_date: any
   end_date: any
   url: string
-  bookmarks: any
   playings: number
   created_at: any
+  bookmarks: any
 }
 
 export type Creator = {
