@@ -3,10 +3,12 @@
     <div class="flex justify-between items-center h-full mx-auto container">
       <div class="flex items-center">
         <a href="/" class="text-xl font-600 mr-3 flex  items-center"> 
-          <NuxtImg src="/favicon.png" width="36" height="36" alt="謎解きデータベース"/>
-          <p class="ml-1">謎解きデータベース</p>
+          <NuxtImg v-if="$colorMode.preference == 'dark'" src="/logo_dark.png" fit="contain" height="36" alt="謎解きデータベース"/>
+          <NuxtImg v-else src="/logo_light.png" fit="contain" height="36" alt="謎解きデータベース"/>
         </a>
-        <el-link href="/list/" :underline="false">謎解き一覧</el-link>
+        <div class="ml-4">
+          <el-link href="/list/" :underline="false">謎解き一覧</el-link>
+        </div>
       </div>
       <!-- <div class="flex items-center">
         <el-button bg v-if="$colorMode.preference == 'dark'" type="" :icon="Moon" @click="$colorMode.preference = 'light'"/>

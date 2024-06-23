@@ -6,7 +6,7 @@
           <NuxtImg format="webp" :src="riddle.image" width="176" sizes="160px lg:176px" fit="contain" :alt="riddle.name"/>
         </div>
         <!-- <el-image :src="riddle.image" fit="contain" :alt="riddle.name" class="w-40 lg:w-44 h-48 lg:h-56 bg-gray-700"/> -->
-        <div class="flex flex-wrap-reverse absolute bottom-9 left-0">
+        <div class="flex flex-wrap-reverse absolute bottom-2 left-0">
           <el-tag
             v-if="riddle.story >= 4"
             class="mt-1 ml-1"
@@ -38,7 +38,7 @@
             スッキリ◎
           </el-tag>
         </div>
-        <div class="absolute bottom-0 w-40 lg:w-44 h-8 bg-black bg-opacity-70 flex items-center">
+        <!-- <div class="absolute bottom-0 w-40 lg:w-44 h-8 bg-black bg-opacity-70 flex items-center">
           <span class="flex items-center text-white ml-2 bottom-1">
             <el-icon :size="16" color="">
               <VideoPlay />
@@ -47,7 +47,7 @@
               {{ riddle.playings }}
             </span>
           </span>
-        </div>
+        </div> -->
       </a>
       <div class="mx-4 my-2 flex flex-col">
         <a :href="`/list/${riddle.id}`" class="text-base lg:text-lg font-bold truncate w-40">{{ riddle.name }}</a>

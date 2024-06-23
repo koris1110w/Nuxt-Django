@@ -1,7 +1,7 @@
 <template>
   <div class="mx-4">
     <div>
-      <p class="text-md text-gray-400">謎解きデータベースは、オンラインで無料で遊べる謎解きを検索できるまとめサイトです。</p>
+      <p class="text-md text-gray-400">謎解きデータベースは、無料で遊べるオンライン謎解き（WEB謎、LINE謎）を検索できるまとめサイトです。</p>
     </div>
     <h1 class="text-xl font-bold my-4">おすすめTOP10</h1>
     <Carousel
@@ -57,8 +57,8 @@
   useSeoMeta({
     title: '謎解きデータベース',
     ogTitle: '謎解きデータベース',
-    description: '無料で遊べるオンライン謎解きを探すなら、「謎解きデータベース」で検索。ランキングやおすすめ、様々な項目での検索から自分好みの謎解きを見つけよう！',
-    ogDescription: '無料で遊べるオンライン謎解きを探すなら、「謎解きデータベース」で検索。ランキングやおすすめ、様々な項目での検索から自分好みの謎解きを見つけよう！',
+    description: '無料で遊べるオンライン謎解き（WEB謎、LINE謎）を探すなら、『謎解きデータベース』で検索！ランキングやおすすめ、様々な項目での検索から自分好みの謎解きを見つけよう！',
+    ogDescription: '無料で遊べるオンライン謎解き（WEB謎、LINE謎）を探すなら、『謎解きデータベース』で検索！ランキングやおすすめ、様々な項目での検索から自分好みの謎解きを見つけよう！',
     // ogImage: 'https://nazotokidb.com/favicon.ico',
     // twitterCard: 'summary_large_image',
   });

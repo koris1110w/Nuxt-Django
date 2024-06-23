@@ -2,12 +2,12 @@
   <div class="bg-white dark:bg-gray-800 rounded-md border border-gray-300 dark:border-gray-700 overflow-hidden w-44 pb-2">
     <div class="flex flex-col">
       <a :href="`/list/${riddle.id}`" class="relative">
-        <div class="w-44 h-44 bg-gray-100 dark:bg-gray-700 flex items-center">
+        <div class="w-44 h-44 bg-gray-100 dark:bg-gray-700 flex items-center overflow-hidden">
           <NuxtImg format="webp" :src="riddle.image" width="176" sizes="176px" fit="contain" :alt="riddle.name"/>
         </div>
         <!-- <el-image :src="riddle.image" sizes="176px" fit="contain" :alt="riddle.name" class="w-44 h-44 bg-gray-700"/> -->
         <div class="absolute top-2 left-2 text-white w-8 h-8 font-bold flex items-center justify-center" :class="getRankingColor(index)">{{ index + 1 }}</div>
-        <div class="flex flex-wrap-reverse absolute bottom-9 left-0">
+        <div class="flex flex-wrap-reverse absolute bottom-2 left-0">
           <el-tag
             v-if="riddle.story >= 4"
             class="mt-1 ml-1"
@@ -39,7 +39,7 @@
             スッキリ◎
           </el-tag>
         </div>
-        <div class="absolute inset-x-0 bottom-0 h-8 bg-black bg-opacity-70">
+        <!-- <div class="absolute inset-x-0 bottom-0 h-8 bg-black bg-opacity-70">
           <span class="flex items-center text-white absolute left-2 bottom-1">
             <el-icon :size="16" color="">
               <VideoPlay />
@@ -48,7 +48,7 @@
               {{ riddle.playings }}
             </span>
           </span>
-        </div>
+        </div> -->
       </a>
       <div class="mx-2 flex flex-col items-start">
         <a :href="`/list/${riddle.id}`" class="text-base lg:text-lg font-bold truncate w-40 text-left">{{ riddle.name }}</a>

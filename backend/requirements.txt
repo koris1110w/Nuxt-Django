@@ -7,3 +7,4 @@ psycopg2-binary
 django-filter
 pillow
 sentry-sdk
+django-markdownx

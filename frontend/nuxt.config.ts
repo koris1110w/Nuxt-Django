@@ -15,6 +15,9 @@ export default defineNuxtConfig({
         apiUrl: process.env.NUXT_PUBLIC_API_URL,
     }
   },
+  site: {
+    url: 'https://nazotokidb.com',
+  },
   app:{
     head: {
       title: "謎解きデータベース",

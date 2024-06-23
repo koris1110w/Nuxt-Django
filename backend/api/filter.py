@@ -44,7 +44,7 @@ class RiddleFilter(filters.FilterSet):
 
     def wordFilter(self,queryset,name,value):
         #ここでOR検索を入れる。fieldsのcustomerNameに入ってきた値を利用
-        return queryset.filter(Q(name__icontains=value)|Q(description__icontains=value))
+        return queryset.filter(Q(name__icontains=value)|Q(description__icontains=value)|Q(creator__name__icontains=value))
     
     def orderFilter(self,queryset,name,value):
         return queryset.order_by(value)

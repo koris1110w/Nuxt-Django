@@ -7,6 +7,7 @@ from rest_framework_simplejwt import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include("api.urls")),
+    path('markdownx/', include('markdownx.urls')),
     # jwt-tokenを取得
     path('api-auth/jwt/', views.TokenObtainPairView.as_view()),
     # jwt-tokenを再取得

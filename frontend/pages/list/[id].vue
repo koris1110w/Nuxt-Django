@@ -2,11 +2,10 @@
   <div class="grid lg:grid-cols-3 gap-4">
     <div class="flex justify-center">
       <span class="relative"> 
-        <div class="flex items-center h-96 bg-gray-100 dark:bg-gray-700">
+        <div class="flex items-center h-96 bg-gray-100 dark:bg-gray-700 overflow-hidden">
           <NuxtImg :src="riddle.image" width="384" sizes="384px" fit="contain" :alt="riddle.name"/>
         </div>
-        <!-- <el-image :src="riddle.image" fit="contain" class="flex items-center h-96 bg-gray-700"/> -->
-        <div class="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
+        <!-- <div class="absolute inset-x-0 bottom-0 h-10 bg-black bg-opacity-70">
           <span class="flex items-center text-white absolute left-3 bottom-2">
             <el-icon :size="16" color="">
               <VideoPlay />
@@ -15,7 +14,7 @@
               {{ riddle.playings }}
             </span>
           </span>
-        </div>
+        </div> -->
       </span>
     </div>
     <div class="ml-4 flex flex-col items-start">
@@ -53,13 +52,13 @@
           <span class="ml-2 text-gray-700 dark:text-gray-300 font-semibold">難易度</span>
           <span class="mx-10 text-gray-700 dark:text-gray-300">{{ riddle.level_str }}</span>
         </div>
-        <div class="flex items-center mt-1">
+        <!-- <div class="flex items-center mt-1">
           <el-icon :size="24" color="">
             <VideoPlay />
           </el-icon>
           <span class="ml-2 text-gray-700 dark:text-gray-300 font-semibold">プレイ回数</span>
           <span class="mx-10 text-gray-700 dark:text-gray-300">{{ riddle.playings }}回</span>
-        </div>
+        </div> -->
         <div class="flex items-center mt-1">
           <el-icon :size="24" color="">
             <Calendar />
@@ -92,7 +91,10 @@
   <div class="container mt-10 px-4 sm:px-0">
     <el-collapse v-model="activeName">
       <el-collapse-item title="説明" name="1">
-        <div class="text-lg">
+        <div v-if="riddle.description == ''" class="text-lg">
+          説明なし
+        </div>
+        <div v-else class="text-lg">
           {{ riddle.description }}
         </div>
       </el-collapse-item>

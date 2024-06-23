@@ -123,6 +123,10 @@
   </div>
 </template>
 <script setup>
+  import {
+    Filter,
+    Search,
+  } from '@element-plus/icons-vue'
   const typeSet = [
     {
       title: "WEB",

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "corsheaders",
     'register.apps.RegisterConfig',
     'api.apps.ApiConfig',
+    'markdownx',
 ]
 
 MIDDLEWARE = [

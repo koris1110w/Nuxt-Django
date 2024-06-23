@@ -100,7 +100,7 @@
       <c-card v-for="riddle in response.results" :key="riddle.id" :riddle="riddle"></c-card>
     </div>
     <div class="mt-4 flex justify-center items-center">
-      <el-pagination background layout="prev, pager, next" v-model:current-page="page" :page-count="Math.ceil(response.count / 6)" @current-change="paging"></el-pagination>
+      <el-pagination background layout="prev, pager, next" v-model:current-page="page" :page-count="Math.ceil(response.count / 6)" @current-change="paging" :pager-count="6"></el-pagination>
     </div>
     <c-adcards class="mt-4"></c-adcards>
   </div>
