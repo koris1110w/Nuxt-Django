@@ -41,6 +41,11 @@ export default defineNuxtConfig({
       ],
     },
   },
+  nitro:{
+    prerender: {
+      failOnError: false,
+    },
+  },
   gtag: {
     id: 'G-PQJVM68CW4' // 測定ID
   },
