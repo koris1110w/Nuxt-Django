@@ -66,3 +66,14 @@ class ReviewModel(models.Model):
     story = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     gimmick = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     created_at = models.DateTimeField(auto_now_add=True)
+
+class ArticleModel(models.Model):
+    title = models.CharField(max_length=120)
+    image = models.ImageField(upload_to='')
+    description = models.TextField(null=True, blank=True)
+    riddles = models.ManyToManyField(RiddleModel, verbose_name="紹介謎", blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title

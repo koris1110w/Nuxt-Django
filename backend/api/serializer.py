@@ -51,3 +51,11 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = models.ReviewModel
         fields = "__all__"
         read_only_fields = ('id',)
+
+class ArticleSerializer(serializers.ModelSerializer):
+    riddles = RiddleSerializer(read_only=True, many=True)
+    
+    class Meta:
+        model = models.ArticleModel
+        fields = "__all__"
+        read_only_fields = ('id',)

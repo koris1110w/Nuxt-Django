@@ -121,6 +121,10 @@
       body: postData,
     });
   }
+
+  import MarkdownIt from 'markdown-it'
+  const md = new MarkdownIt()
+
   useSeoMeta({
     title: () => `${riddle.value.name} | 謎解きデータベース`,
     ogTitle: () => `${riddle.value.name} | 謎解きデータベース`,

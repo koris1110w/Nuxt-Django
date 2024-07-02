@@ -23,7 +23,7 @@ class APIRiddleListView(generics.ListAPIView):
 
 class APIRankingView(generics.ListAPIView):
     permission_classes = [AllowAny]
-    queryset = models.RiddleModel.objects.order_by('rating').reverse()[0:10]
+    queryset = models.RiddleModel.objects.order_by('-playings', '-rating')[0:10]
     serializer_class = serializer.RiddleSerializer
 
 class APIRiddleDetailView(generics.RetrieveAPIView):
@@ -61,3 +61,13 @@ class APICollectReviewView(APIView):
         object.story = review.aggregate(result=Avg("story"))["result"]
         object.save()
         return Response({'status': 'success'}, status=200)
+    
+class APIArticleListView(generics.ListAPIView):
+    permission_classes = [AllowAny]
+    queryset = models.ArticleModel.objects.all().order_by("created_at").reverse()
+    serializer_class = serializer.ArticleSerializer
+
+class APIArticleDetailView(generics.RetrieveAPIView):
+    permission_classes = [AllowAny]
+    queryset = models.ArticleModel.objects.all()
+    serializer_class = serializer.ArticleSerializer

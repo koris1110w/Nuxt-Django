@@ -14,5 +14,7 @@ urlpatterns = [
     path('ranking/', views.APIRankingView.as_view(), name='api_ranking'),
     path("playing/<int:pk>/", views.APIPlayingView.as_view(), name="api_playing"),
     path("collect_review/<int:pk>/", views.APICollectReviewView.as_view()),
+    path("articles/", views.APIArticleListView.as_view(), name="articles"),
+    path("articles/<int:pk>/", views.APIArticleDetailView.as_view(), name="articles_detail"),
     path('sentry-debug/', trigger_error),
 ]

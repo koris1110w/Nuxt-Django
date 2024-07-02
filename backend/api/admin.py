@@ -5,3 +5,4 @@ from markdownx.admin import MarkdownxModelAdmin
 admin.site.register(models.RiddleModel, MarkdownxModelAdmin)
 admin.site.register(models.CreatorModel)
 admin.site.register(models.ReviewModel)
+admin.site.register(models.ArticleModel)

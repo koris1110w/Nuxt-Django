@@ -100,7 +100,7 @@
       <c-card v-for="riddle in response.results" :key="riddle.id" :riddle="riddle"></c-card>
     </div>
     <div class="mt-4 flex justify-center items-center">
-      <el-pagination background layout="prev, pager, next" v-model:current-page="page" :page-count="Math.ceil(response.count / 6)" @current-change="paging" :pager-count="6"></el-pagination>
+      <el-pagination background layout="prev, pager, next" v-model:current-page="page" :page-count="Math.ceil(response.count / 6)" @current-change="paging" :pager-count="4"></el-pagination>
     </div>
     <c-adcards class="mt-4"></c-adcards>
   </div>
@@ -244,7 +244,5 @@
   useSeoMeta({
     title: '謎解き一覧 | 謎解きデータベース',
     ogTitle: '謎解き一覧 | 謎解きデータベース',
-    description: '無料で遊べるオンライン謎解きを探すなら、「謎解きデータベース」で検索。ランキングやおすすめ、様々な項目での検索から自分好みの謎解きを見つけよう！',
-    ogDescription: '無料で遊べるオンライン謎解きを探すなら、「謎解きデータベース」で検索。ランキングやおすすめ、様々な項目での検索から自分好みの謎解きを見つけよう！',
   });
 </script>

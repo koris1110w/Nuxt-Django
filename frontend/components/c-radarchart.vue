@@ -38,7 +38,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement,PointElement ,RadialLine
 // 他にも<"bar">などがあります。
 const data:ChartData<'radar'> = {
   labels: [
-    'スッキリ度',
+    'スッキリ',
     'ギミック',
     '難易度',
     '物量',

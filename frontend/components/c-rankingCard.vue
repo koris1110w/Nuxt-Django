@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white dark:bg-gray-800 rounded-md border border-gray-300 dark:border-gray-700 overflow-hidden w-44 pb-2">
+  <div class="bg-white dark:bg-gray-800 rounded-md border border-gray-300 dark:border-gray-700 overflow-hidden w-44 pb-2 drop-shadow-md">
     <div class="flex flex-col">
       <a :href="`/list/${riddle.id}`" class="relative">
         <div class="w-44 h-44 bg-gray-100 dark:bg-gray-700 flex items-center overflow-hidden">
