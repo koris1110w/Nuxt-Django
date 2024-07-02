@@ -134,7 +134,7 @@
 
   const img_w = computed(() => {
     if (width.value < 768) {
-      return 150
+      return 75
     } else if (width.value < 1024) {
       return 150
     } else {
@@ -144,7 +144,7 @@
 
   const img_h = computed(() => {
     if (width.value < 768) {
-      return 120
+      return 60
     } else if (width.value < 1024) {
       return 120
     } else {
