@@ -1,10 +1,11 @@
 <template>
   <article class="mx-4 flex justify-center">
     <div class="lg:w-3/4">
-      <div class="flex">
-        <NuxtImg :src="response.image" :width="img_w" :height="img_h" :alt="response.title"/>
-        <!-- <el-image :src="response.image" :alt="response.title" class="w-40 h-44" fit="contain"/> -->
-        <div class="ml-4">
+      <div class="grid grid-cols-3 gap-4">
+        <div class="col-span-1 flex justify-center items-center">
+          <NuxtImg :src="response.image" height="160" :alt="response.title" fit="cover"/>
+        </div>
+        <div class="col-span-2">
           <h1 class="text-lg lg:text-2xl font-bold">{{ response.title }}</h1>
           <p class="text-sm lg:text-md mt-4 text-gray-700 dark:text-gray-300">{{ response.description }}</p>
           <div class="mt-2 flex items-center">
@@ -134,7 +135,7 @@
 
   const img_w = computed(() => {
     if (width.value < 768) {
-      return 75
+      return 150
     } else if (width.value < 1024) {
       return 150
     } else {
@@ -144,7 +145,7 @@
 
   const img_h = computed(() => {
     if (width.value < 768) {
-      return 60
+      return 120
     } else if (width.value < 1024) {
       return 120
     } else {
