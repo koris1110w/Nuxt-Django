@@ -53,7 +53,14 @@ export default defineNuxtConfig({
     domains: ["nazotokidb.com", "localhost", "localhost:3000"],
   },
   sitemap: {
-    path: '/sitemap.xml'
+    path: '/sitemap.xml',
+    async routes() {
+      const { data: articleList } = await useFetch(`https://nazotokidb.com/api/v1/articles/`)
+        return articleList.map(
+          (article) =>
+            `articles/${article.id}`
+      );
+    },
   },
   colorMode: {
     preference: 'dark',
