@@ -54,13 +54,10 @@ export default defineNuxtConfig({
   },
   sitemap: {
     path: '/sitemap.xml',
-    async routes() {
-      const { data: articleList } = await useFetch(`https://nazotokidb.com/api/v1/articles/`)
-        return articleList.map(
-          (article) =>
-            `articles/${article.id}`
-      );
-    },
+    routes: [
+      'articles/1',
+      'articles/2',
+    ],
   },
   colorMode: {
     preference: 'dark',
