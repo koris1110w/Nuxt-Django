@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@element-plus/nuxt",
     'nuxt-gtag',
-    '@nuxtjs/sitemap',
+    // '@nuxtjs/sitemap',
     "@nuxt/image",
     "@nuxt/content",
     '@nuxtjs/color-mode',
@@ -52,14 +52,14 @@ export default defineNuxtConfig({
   image: {
     domains: ["nazotokidb.com", "localhost", "localhost:3000"],
   },
-  sitemap: {
-    hostname: 'https://nazotokidb.com',
-    path: '/sitemap.xml',
-    routes: [
-      '/articles/1',
-      '/articles/2',
-    ],
-  },
+  // sitemap: {
+  //   hostname: 'https://nazotokidb.com',
+  //   path: '/sitemap.xml',
+  //   routes: [
+  //     '/articles/1',
+  //     '/articles/2',
+  //   ],
+  // },
   colorMode: {
     preference: 'dark',
     classSuffix: '',
