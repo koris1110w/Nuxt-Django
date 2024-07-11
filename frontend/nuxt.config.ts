@@ -55,8 +55,8 @@ export default defineNuxtConfig({
   sitemap: {
     path: '/sitemap.xml',
     routes: [
-      'articles/1',
-      'articles/2',
+      '/articles/1',
+      '/articles/2',
     ],
   },
   colorMode: {
