@@ -53,6 +53,7 @@ export default defineNuxtConfig({
     domains: ["nazotokidb.com", "localhost", "localhost:3000"],
   },
   sitemap: {
+    hostname: 'https://nazotokidb.com',
     path: '/sitemap.xml',
     routes: [
       '/articles/1',
